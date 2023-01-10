@@ -22,6 +22,10 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
+-- Move around buffers
+map('n', 'H', '<cmd>bp<cr>')
+map('n', 'L', '<cmd>bn<cr>')
+
 
 -- Which-key mappings
 --
