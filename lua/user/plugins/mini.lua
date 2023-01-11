@@ -15,4 +15,11 @@ return {
     end,
     lazy = true,
   },
+
+  {
+    "echasnovski/mini.pairs",
+    config = function()
+      require("mini.pairs").setup()
+    end,
+  },
 }
