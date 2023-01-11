@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-function apply(options)
+local function apply(options)
     for k, v in pairs(options) do
         vim.opt[k] = v
     end

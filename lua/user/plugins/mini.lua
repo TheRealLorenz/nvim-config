@@ -5,8 +5,8 @@ return {
     keys = {
       { "<leader>c", function() MiniBufremove.wipeout() end, desc = "Close Buffer" },
     },
-    config = function() 
-        require('mini.bufremove').setup() 
+    config = function()
+        require('mini.bufremove').setup()
     end,
     lazy = true,
   },
