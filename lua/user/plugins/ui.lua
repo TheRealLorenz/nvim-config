@@ -42,7 +42,20 @@ return {
         end,
         desc = "Delete All",
       },
+      { 
+        "<leader>nh", 
+        function() 
+          require("telescope").load_extension("notify")
+          require("telescope").extensions.notify.notify()
+        end,
+        desc = "History",
+      },
     },
+    config = function()
+        vim.notify = require('notify')
+    end,
+    event = "UiEnter",
+    lazy = true,
   },
   
   {

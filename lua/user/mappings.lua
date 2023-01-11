@@ -25,6 +25,18 @@ vim.api.nvim_set_keymap('n', 'L', '<cmd>bn<cr>', options)
 local wk = require('which-key')
 
 wk.register({
-  n = { name = "Notifications" },
+  n = {
+      name = "Notifications",
+      h = {
+        require('user.notify').notify_history,
+        "History",
+        options
+      }
+  },
+  p = {
+    name = "Packages",
+    L = { "<cmd>Lazy<cr>", "Lazy", options },
+    M = { "<cmd>Mason<cr>", "Mason", options },
+  },
 }, { prefix = "<leader>" })
 

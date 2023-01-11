@@ -35,24 +35,4 @@ return {
     lazy = true,
   },
 
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme tokyonight]])
-    end,
-    lazy = false,
-  },
-
-  {
-    'echasnovski/mini.bufremove',
-    keys = {
-      { "<leader>c", function() MiniBufremove.wipeout() end, desc = "Close Buffer" },
-    },
-    config = function() 
-        require('mini.bufremove').setup() 
-    end,
-    lazy = true,
-  },
-
 }
