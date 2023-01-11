@@ -3,6 +3,7 @@ return {
   {
     "akinsho/nvim-bufferline.lua",
     event = "BufAdd",
+    lazy = true,
     opts = {
       options = {
         diagnostics = "nvim_lsp",
@@ -23,6 +24,8 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
+    event = "UiEnter",
+    lazy = true,
     config = function()
         require('lualine').setup({})
         vim.cmd([[set noshowmode]])
