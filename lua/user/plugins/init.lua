@@ -1,5 +1,4 @@
 return {
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
@@ -22,7 +21,7 @@ return {
   },
 
   {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -30,9 +29,8 @@ return {
   },
 
   {
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
     config = true,
     lazy = true,
   },
-
 }

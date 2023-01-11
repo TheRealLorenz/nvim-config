@@ -1,5 +1,4 @@
 return {
-
   {
     "akinsho/nvim-bufferline.lua",
     event = "BufAdd",
@@ -20,15 +19,15 @@ return {
   },
 
   {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     dependencies = {
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     event = "UiEnter",
     lazy = true,
     config = function()
-        require('lualine').setup({})
-        vim.cmd([[set noshowmode]])
+      require("lualine").setup({})
+      vim.cmd([[set noshowmode]])
     end,
   },
 
@@ -38,5 +37,4 @@ return {
     config = true,
     lazy = true,
   },
-
 }
