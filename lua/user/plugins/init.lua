@@ -33,4 +33,10 @@ return {
     config = true,
     lazy = true,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = "UiEnter",
+    lazy = true,
+  },
 }
