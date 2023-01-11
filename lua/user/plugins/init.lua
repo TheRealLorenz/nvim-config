@@ -9,6 +9,7 @@ return {
       window = {
         mappings = {
           ["o"] = "open",
+          ["<space>"] = false,
         },
       },
     },
