@@ -29,4 +29,17 @@ return {
     end,
   },
 
+  {
+    "rcarriga/nvim-notify",
+    keys = {
+      {
+        "<leader>nd",
+        function()
+          require("notify").dismiss({ silent = true, pending = true })
+        end,
+        desc = "Delete all Notifications",
+      },
+    },
+  },
+
 }

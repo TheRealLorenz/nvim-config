@@ -32,6 +32,6 @@ map('n', 'L', '<cmd>bn<cr>')
 local wk = require('which-key')
 
 wk.register({
-    e = { "<cmd>Neotree toggle<cr>", "Toggle NeoTree" },
+  n = { name = "Notifications" },
 }, { prefix = "<leader>" })
 
