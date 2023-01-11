@@ -27,11 +27,6 @@ local wk = require('which-key')
 wk.register({
   n = {
       name = "Notifications",
-      h = {
-        require('user.notify').notify_history,
-        "History",
-        options
-      }
   },
   p = {
     name = "Packages",
