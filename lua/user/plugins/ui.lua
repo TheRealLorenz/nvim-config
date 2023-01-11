@@ -41,5 +41,12 @@ return {
       },
     },
   },
+  
+  {
+    "stevearc/dressing.nvim",
+    event = "UiEnter",
+    config = true,
+    lazy = true,
+  },
 
 }

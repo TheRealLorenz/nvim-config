@@ -1,30 +1,23 @@
 -- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/keymaps.lua
 --
 
--- Shortand function for mappings
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap=true, silent=true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local options = { noremap=true, silent=true }
 
 -- Disable arrow keys
-map('', '<up>', '<nop>')
-map('', '<down>', '<nop>')
-map('', '<left>', '<nop>')
-map('', '<right>', '<nop>')
+vim.api.nvim_set_keymap('', '<up>', '<nop>', options)
+vim.api.nvim_set_keymap('', '<down>', '<nop>', options)
+vim.api.nvim_set_keymap('', '<left>', '<nop>', options)
+vim.api.nvim_set_keymap('', '<right>', '<nop>', options)
 
 -- Move around splits using Ctrl + {h,j,k,l}
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', options)
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', options)
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', options)
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', options)
 
 -- Move around buffers
-map('n', 'H', '<cmd>bp<cr>')
-map('n', 'L', '<cmd>bn<cr>')
+vim.api.nvim_set_keymap('n', 'H', '<cmd>bp<cr>', options)
+vim.api.nvim_set_keymap('n', 'L', '<cmd>bn<cr>', options)
 
 
 -- Which-key mappings

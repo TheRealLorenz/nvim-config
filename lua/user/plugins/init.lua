@@ -22,6 +22,14 @@ return {
   },
 
   {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    lazy = true,
+  },
+
+  {
     'folke/which-key.nvim',
     config = true,
     lazy = true,
