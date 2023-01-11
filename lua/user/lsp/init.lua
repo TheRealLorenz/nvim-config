@@ -17,6 +17,7 @@ local on_attach = function(_, bufnr)
       },
       r = { vim.lsp.buf.rename, "Rename" },
       a = { vim.lsp.buf.code_action, "Code Action" },
+      d = { vim.diagnostic.open_float, "Hover diagnostics" },
     },
   }, {
     prefix = "",
