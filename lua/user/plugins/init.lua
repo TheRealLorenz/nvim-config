@@ -39,12 +39,4 @@ return {
     event = "UiEnter",
     lazy = true,
   },
-
-  {
-    "kylechui/nvim-surround",
-    tag = "*",
-    config = true,
-    event = "UiEnter",
-    lazy = true,
-  },
 }
