@@ -10,6 +10,8 @@ local options = {
   tabstop = 4,
   shiftwidth = 4,
   expandtab = true,
+  number = true,
+  relativenumber = true,
 }
 
 apply(options)
