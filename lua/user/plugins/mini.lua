@@ -16,21 +16,4 @@ return {
     lazy = true,
   },
 
-  {
-    "echasnovski/mini.pairs",
-    config = function()
-      require("mini.pairs").setup()
-    end,
-    event = "BufAdd",
-    lazy = true,
-  },
-
-  {
-    "echasnovski/mini.surround",
-    config = function()
-      require("mini.surround").setup()
-    end,
-    event = "BufAdd",
-    lazy = true,
-  },
 }
