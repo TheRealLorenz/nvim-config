@@ -22,14 +22,34 @@ vim.api.nvim_set_keymap("n", "L", "<cmd>bn<cr>", options)
 -- Which-key mappings
 --
 local wk = require("which-key")
+local utils = require("user.utils")
 
-wk.register({
-  n = {
-    name = "Notifications",
-  },
+local mappings = {
   p = {
     name = "Packages",
     L = { "<cmd>Lazy<cr>", "Lazy", options },
-    M = { "<cmd>Mason<cr>", "Mason", options },
   },
-}, { prefix = "<leader>" })
+}
+
+if utils.is_available("nvim-notify") then
+  mappings["n"] = {
+    name = "Notifications",
+  }
+
+  if utils.is_available("telescope.nvim") then
+    mappings["nh"] = {
+      function()
+        require("telescope").load_extension("notify")
+        require("telescope").extensions.notify.notify()
+      end,
+      "History",
+      options,
+    }
+  end
+end
+
+if utils.is_available("mason") then
+  mappings["pM"] = { "<cmd>Mason<cr>", "Mason", options }
+end
+
+wk.register(mappings, { prefix = "<leader>" })
