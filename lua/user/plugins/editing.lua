@@ -13,4 +13,10 @@ return {
     event = "BufAdd",
     lazy = true,
   },
+
+  {
+    "Darazaki/indent-o-matic",
+    lazy = true,
+    event = "BufAdd",
+  },
 }
