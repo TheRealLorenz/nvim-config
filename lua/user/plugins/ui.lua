@@ -34,4 +34,10 @@ return {
     config = true,
     event = "UiEnter",
   },
+
+  {
+    "petertriho/nvim-scrollbar",
+    config = true,
+    event = "UiEnter",
+  },
 }
