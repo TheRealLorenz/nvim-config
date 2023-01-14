@@ -14,6 +14,7 @@ local options = {
   expandtab = true,
   number = true,
   relativenumber = true,
+  mouse = "a",
 }
 
 apply(options)
