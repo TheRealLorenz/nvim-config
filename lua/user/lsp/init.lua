@@ -27,6 +27,8 @@ local on_attach = function(_, bufnr)
   })
 end
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local function get_custom_settings(server_name)
   local ok, settings = pcall(require, "user.lsp.servers." .. server_name)
   if ok then
@@ -43,6 +45,7 @@ local lsp_settings = {
     require("lspconfig")[server_name].setup({
       on_attach = on_attach,
       settings = settings,
+      capabilities = capabilities,
     })
   end,
 }
