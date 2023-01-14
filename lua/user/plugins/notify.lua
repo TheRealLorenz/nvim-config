@@ -14,6 +14,5 @@ return {
       vim.notify = require("notify")
     end,
     event = "UiEnter",
-    lazy = true,
   },
 }

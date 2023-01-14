@@ -2,6 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     config = true,
+    lazy = false,
   },
 
   {
@@ -14,12 +15,10 @@ return {
       require("mason-lspconfig").setup()
       require("mason-lspconfig").setup_handlers(require("user.lsp"))
     end,
+    lazy = false,
   },
 
-  {
-    "neovim/nvim-lspconfig",
-    lazy = true,
-  },
+  "neovim/nvim-lspconfig",
 
   {
     "jay-babu/mason-null-ls.nvim",
@@ -32,7 +31,6 @@ return {
       })
       require("mason-null-ls").setup_handlers()
     end,
-    lazy = true,
   },
 
   {
@@ -41,5 +39,6 @@ return {
       "jay-babu/mason-null-ls.nvim",
     },
     config = true,
+    lazy = false,
   },
 }

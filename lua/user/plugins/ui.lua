@@ -1,8 +1,6 @@
 return {
   {
     "akinsho/nvim-bufferline.lua",
-    event = "BufAdd",
-    lazy = true,
     opts = {
       options = {
         diagnostics = "nvim_lsp",
@@ -16,6 +14,7 @@ return {
         },
       },
     },
+    event = "UiEnter",
   },
 
   {
@@ -23,18 +22,16 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    event = "UiEnter",
-    lazy = true,
     config = function()
       require("lualine").setup({})
       vim.cmd([[set noshowmode]])
     end,
+    event = "UiEnter",
   },
 
   {
     "stevearc/dressing.nvim",
-    event = "UiEnter",
     config = true,
-    lazy = true,
+    event = "UiEnter",
   },
 }

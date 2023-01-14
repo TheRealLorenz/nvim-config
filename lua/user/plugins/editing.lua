@@ -2,21 +2,19 @@ return {
   {
     "windwp/nvim-autopairs",
     config = true,
-    lazy = true,
-    event = "BufAdd",
+    event = "BufReadPre",
   },
 
   {
     "kylechui/nvim-surround",
     tag = "*",
     config = true,
-    event = "BufAdd",
-    lazy = true,
+    event = "BufReadPre",
   },
 
   {
     "Darazaki/indent-o-matic",
-    lazy = true,
-    event = "BufAdd",
+    event = "BufReadPre",
+  },
   },
 }

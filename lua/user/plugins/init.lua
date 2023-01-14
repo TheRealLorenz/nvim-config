@@ -20,23 +20,18 @@ return {
     lazy = false,
   },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    lazy = true,
-  },
+  "nvim-telescope/telescope.nvim",
 
   {
     "folke/which-key.nvim",
     config = true,
-    lazy = true,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    event = "UiEnter",
-    lazy = true,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    event = "BufReadPre",
   },
 }
