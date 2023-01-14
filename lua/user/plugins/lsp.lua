@@ -41,4 +41,13 @@ return {
     config = true,
     lazy = false,
   },
+
+  {
+    'j-hui/fidget.nvim',
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    config = true,
+    event = "BufReadPre"
+  },
 }
