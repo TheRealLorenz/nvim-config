@@ -9,4 +9,16 @@ M.is_available = function(plugin)
   return lazy_config_avail and lazy_config.plugins and lazy_config.plugins[plugin]
 end
 
+M.apply_options = function(options)
+  for k, v in pairs(options) do
+    vim.opt[k] = v
+  end
+end
+
+M.apply_globals = function(options)
+  for k, v in pairs(options) do
+    vim.g[k] = v
+  end
+end
+
 return M

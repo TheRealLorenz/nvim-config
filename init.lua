@@ -1,5 +1,13 @@
+local utils = require("user.utils")
+
+-- Bootstrap lazy.nvim
 require("user.bootstrap")
-require("user.options")
+
+-- Apply options
+local globals, options = unpack(require("user.options"))
+utils.apply_globals(globals)
+utils.apply_options(options)
+
 require("lazy").setup("user.plugins", {
   defaults = {
     lazy = true,

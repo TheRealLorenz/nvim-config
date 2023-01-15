@@ -1,13 +1,3 @@
-vim.g.mapleader = " "
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-local function apply(options)
-  for k, v in pairs(options) do
-    vim.opt[k] = v
-  end
-end
-
 local options = {
   tabstop = 4,
   shiftwidth = 4,
@@ -17,4 +7,10 @@ local options = {
   mouse = "a",
 }
 
-apply(options)
+local globals = {
+  mapleader = " ",
+  loaded_netrw = 1,
+  loaded_netrwPlugin = 1,
+}
+
+return { globals, options }
