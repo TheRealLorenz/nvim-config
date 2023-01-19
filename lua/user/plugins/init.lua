@@ -2,7 +2,8 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader>tg", "<cmd>Telescope live_grep<cr>", desc = "Telescope Grep" },
+      { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Word" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     },
   },
 

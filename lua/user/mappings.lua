@@ -48,9 +48,9 @@ if utils.is_available("nvim-notify") then
   end
 end
 
-if utils.is_available("telescope") then
-  mappings["t"] = {
-    name = "Telescope"
+if utils.is_available("telescope.nvim") then
+  mappings["f"] = {
+    name = "Find"
   }
 end
 
