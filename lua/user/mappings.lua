@@ -48,6 +48,12 @@ if utils.is_available("nvim-notify") then
   end
 end
 
+if utils.is_available("telescope") then
+  mappings["t"] = {
+    name = "Telescope"
+  }
+end
+
 if utils.is_available("mason.nvim") then
   mappings["pM"] = { "<cmd>Mason<cr>", "Mason", options }
 end
