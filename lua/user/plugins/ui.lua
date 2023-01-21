@@ -23,7 +23,9 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("lualine").setup({})
+      require("lualine").setup({
+        extensions = { "neo-tree" },
+      })
       vim.cmd([[set noshowmode]])
     end,
     event = "UiEnter",
