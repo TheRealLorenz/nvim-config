@@ -1,11 +1,5 @@
 local options = { noremap = true, silent = true }
 
--- Disable arrow keys
-vim.api.nvim_set_keymap("", "<up>", "<nop>", options)
-vim.api.nvim_set_keymap("", "<down>", "<nop>", options)
-vim.api.nvim_set_keymap("", "<left>", "<nop>", options)
-vim.api.nvim_set_keymap("", "<right>", "<nop>", options)
-
 -- Move around splits using Ctrl + {h,j,k,l}
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", options)
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", options)
