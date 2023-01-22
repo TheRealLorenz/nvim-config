@@ -5,5 +5,5 @@ require("user.core.options")
 require("user.lazy.bootstrap")
 
 require("lazy").setup("user.plugins", require('user.lazy.config'))
-require("user.mappings")
+require("user.core.mappings")
 require("user.core.autocmds")

@@ -1,58 +1,53 @@
 local options = { noremap = true, silent = true }
 
--- Move around splits using Ctrl + {h,j,k,l}
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", options)
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", options)
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", options)
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", options)
+return {
+  keymaps = {
+    n = {
+      -- Move around splits using Ctrl + {h,j,k,l}
+      ["<C-h>"] = { "<C-w>h", options },
+      ["<C-j>"] = { "<C-w>j", options },
+      ["<C-k>"] = { "<C-w>k", options },
+      ["<C-l>"] = { "<C-w>l", options },
 
--- Move around splits using Ctrl + {h,j,k,l} in terminal mode
-vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", options)
-vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", options)
-vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", options)
-vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", options)
+      -- Move around buffers
+      ["H"] = { "<cmd>bp<cr>", options },
+      ["L"] = { "<cmd>bn<cr>", options },
+    },
+    t = {
+      -- Move around splits using Ctrl + {h,j,k,l} in terminal mode
+      ["<C-h>"] = { "<C-\\><C-n><C-w>h", options },
+      ["<C-j>"] = { "<C-\\><C-n><C-w>j", options },
+      ["<C-k>"] = { "<C-\\><C-n><C-w>k", options },
+      ["<C-l>"] = { "<C-\\><C-n><C-w>l", options },
+    },
+  },
 
--- Move around buffers
-vim.api.nvim_set_keymap("n", "H", "<cmd>bp<cr>", options)
-vim.api.nvim_set_keymap("n", "L", "<cmd>bn<cr>", options)
-
--- Which-key mappings
---
-local wk = require("which-key")
-local utils = require("user.core.utils")
-
-local mappings = {
-  p = {
-    name = "Packages",
-    L = { "<cmd>Lazy<cr>", "Lazy", options },
+  ["which-key"] = {
+    n = {
+      ["<leader>"] = {
+        p = {
+          name = "Packages",
+          L = { "<cmd>Lazy<cr>", "Lazy" },
+          M = { "<cmd>Mason<cr>", "Mason", dependencies = "mason.nvim" },
+        },
+        n = {
+          name = "Notifications",
+          dependencies = "nvim-notify",
+          h = {
+            function()
+              require("telescope").load_extension("notify")
+              require("telescope").extensions.notify.notify()
+            end,
+            "History",
+            dependencies = "telescope.nvim",
+          },
+        },
+        f = {
+          name = "Find",
+          dependencies = "telescope.nvim",
+        },
+      },
+    },
+    v = {},
   },
 }
-
-if utils.is_available("nvim-notify") then
-  mappings["n"] = {
-    name = "Notifications",
-  }
-
-  if utils.is_available("telescope.nvim") then
-    mappings["nh"] = {
-      function()
-        require("telescope").load_extension("notify")
-        require("telescope").extensions.notify.notify()
-      end,
-      "History",
-      options,
-    }
-  end
-end
-
-if utils.is_available("telescope.nvim") then
-  mappings["f"] = {
-    name = "Find"
-  }
-end
-
-if utils.is_available("mason.nvim") then
-  mappings["pM"] = { "<cmd>Mason<cr>", "Mason", options }
-end
-
-wk.register(mappings, { prefix = "<leader>" })
