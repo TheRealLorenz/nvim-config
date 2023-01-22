@@ -2,15 +2,8 @@
 require("user.core.options")
 
 -- Bootstrap lazy.nvim
-require("user.bootstrap")
+require("user.lazy.bootstrap")
 
-require("lazy").setup("user.plugins", {
-  defaults = {
-    lazy = true,
-  },
-  install = {
-    colorscheme = { "tokyonight" },
-  },
-})
+require("lazy").setup("user.plugins", require('user.lazy.config'))
 require("user.mappings")
 require("user.core.autocmds")
