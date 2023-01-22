@@ -13,4 +13,4 @@ local globals = {
   loaded_netrwPlugin = 1,
 }
 
-return { globals, options }
+return { g = globals, opt = options }

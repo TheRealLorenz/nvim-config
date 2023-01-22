@@ -1,6 +1,3 @@
--- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/keymaps.lua
---
-
 local options = { noremap = true, silent = true }
 
 -- Disable arrow keys
@@ -28,7 +25,7 @@ vim.api.nvim_set_keymap("n", "L", "<cmd>bn<cr>", options)
 -- Which-key mappings
 --
 local wk = require("which-key")
-local utils = require("user.utils")
+local utils = require("user.core.utils")
 
 local mappings = {
   p = {
