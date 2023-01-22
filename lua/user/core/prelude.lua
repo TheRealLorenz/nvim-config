@@ -13,4 +13,4 @@ require("lazy").setup("user.plugins", {
   },
 })
 require("user.mappings")
-require("user.autocmds")
+require("user.core.autocmds")
