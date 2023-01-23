@@ -18,51 +18,7 @@ local apply_keymaps = function(keymaps)
   end
 end
 
-local utils = require("user.core.utils")
-
-local is_available = function(dependencies)
-  if type(dependencies) == "string" and utils.is_available(dependencies) then
-    return true
-  end
-
-  if type(dependencies) == "table" then
-    for _, v in ipairs(dependencies) do
-      if not utils.is_available(v) then
-        return false
-      end
-    end
-    return true
-  end
-
-  return nil
-end
-
-local function parse_dependencies(entry)
-  if type(entry) ~= "table" then
-    return entry
-  end
-
-  if entry.dependencies ~= nil and not is_available(entry.dependencies) then
-    return nil
-  end
-
-  entry.dependencies = nil
-
-  for k, v in pairs(entry) do
-    if k ~= "name" then
-      v = parse_dependencies(v)
-    end
-  end
-
-  return entry
-end
-
 local apply_which_keymaps = function(keymaps)
-  -- Parse dependencies
-  for k, v in pairs(keymaps) do
-    keymaps[k] = parse_dependencies(v)
-  end
-
   local wk = require("which-key")
 
   -- Apply normal mode mappings

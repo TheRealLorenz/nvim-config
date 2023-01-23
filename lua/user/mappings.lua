@@ -1,3 +1,4 @@
+local utils = require("user.core.utils")
 local options = { noremap = true, silent = true }
 
 return {
@@ -28,23 +29,23 @@ return {
         p = {
           name = "Packages",
           L = { "<cmd>Lazy<cr>", "Lazy" },
-          M = { "<cmd>Mason<cr>", "Mason", dependencies = "mason.nvim" },
+          M = { "<cmd>Mason<cr>", "Mason", cond = utils.is_available("mason.nvim") },
         },
         n = {
           name = "Notifications",
-          dependencies = "nvim-notify",
+          cond = utils.is_available("nvim-notify"),
           h = {
             function()
               require("telescope").load_extension("notify")
               require("telescope").extensions.notify.notify()
             end,
             "History",
-            dependencies = "telescope.nvim",
+            cond = utils.is_available("telescope.nvim"),
           },
         },
         f = {
           name = "Find",
-          dependencies = "telescope.nvim",
+          cond = utils.is_available("telescope.nvim"),
         },
       },
     },
