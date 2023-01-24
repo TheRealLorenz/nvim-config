@@ -9,7 +9,11 @@ return {
 
   {
     "folke/which-key.nvim",
-    config = true,
+    opts = {
+      window = {
+        border = "single",
+      },
+    },
   },
 
   {

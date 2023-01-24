@@ -1,7 +1,12 @@
 return {
   {
     "williamboman/mason.nvim",
-    config = true,
+    opts = {
+      ui = {
+        border = "single",
+        height = 0.7,
+      },
+    },
     lazy = false,
   },
 
@@ -44,11 +49,11 @@ return {
   },
 
   {
-    'j-hui/fidget.nvim',
+    "j-hui/fidget.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
     },
     config = true,
-    event = "BufReadPre"
+    event = "BufReadPre",
   },
 }

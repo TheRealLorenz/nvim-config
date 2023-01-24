@@ -5,4 +5,7 @@ return {
   install = {
     colorscheme = { "tokyonight" },
   },
+  ui = {
+    border = "single",
+  },
 }
