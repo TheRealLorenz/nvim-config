@@ -21,6 +21,7 @@ return {
       ["<C-k>"] = { "<C-\\><C-n><C-w>k", options },
       ["<C-l>"] = { "<C-\\><C-n><C-w>l", options },
     },
+    i = {},
   },
 
   ["which-key"] = {

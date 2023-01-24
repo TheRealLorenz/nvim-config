@@ -16,6 +16,11 @@ local apply_keymaps = function(keymaps)
   for k, v in pairs(keymaps.t) do
     apply_keymap("t", k, v)
   end
+
+  -- Apply insert mode keymaps
+  for k, v in pairs(keymaps.i) do
+    apply_keymap("i", k, v)
+  end
 end
 
 local apply_which_keymaps = function(keymaps)
