@@ -3,7 +3,7 @@ local apply_keymap = function(mode, k, v)
     v[2] = {}
   end
 
-  vim.api.nvim_set_keymap(mode, k, v[1], v[2])
+  vim.keymap.set(mode, k, v[1], v[2])
 end
 
 local apply_keymaps = function(keymaps)
