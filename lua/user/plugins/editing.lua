@@ -21,4 +21,9 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
   },
+
+  {
+    'Exafunction/codeium.vim',
+    event = "BufReadPre",
+  }
 }
