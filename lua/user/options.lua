@@ -6,6 +6,8 @@ return {
     number = true,
     relativenumber = true,
     mouse = "a",
+    timeout = true,
+    timeoutlen = 300,
   },
 
   g = {
