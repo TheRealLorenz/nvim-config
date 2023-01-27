@@ -3,7 +3,7 @@ return {
     lazy = true,
   },
   install = {
-    colorscheme = { "tokyonight" },
+    colorscheme = { require("user.options").default_colorscheme },
   },
   ui = {
     border = "single",

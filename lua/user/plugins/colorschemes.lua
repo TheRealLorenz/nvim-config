@@ -1,10 +1,15 @@
-return {
+return require("user.core.colorschemes").set_default({
   {
     "folke/tokyonight.nvim",
-    priority = 1000,
     config = function()
       vim.cmd([[colorscheme tokyonight]])
     end,
-    lazy = false,
   },
-}
+
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      vim.cmd([[colorscheme onedark]])
+    end,
+  },
+})
