@@ -23,7 +23,31 @@ return {
   },
 
   {
-    'Exafunction/codeium.vim',
+    "Exafunction/codeium.vim",
     event = "BufReadPre",
-  }
+  },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    depends = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {},
+    keys = {
+      {
+        "<leader>r",
+        function()
+          require("refactoring").select_refactor()
+        end,
+        desc = "Refactor",
+      },
+      {
+        "<leader>r",
+        [[ <Esc><Cmd>lua require('refactoring').select_refactor()<cr> ]],
+        desc = "Refactor",
+        mode = "v",
+      },
+    },
+  },
 }
