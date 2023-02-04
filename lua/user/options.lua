@@ -8,6 +8,7 @@ return {
     mouse = "a",
     timeout = true,
     timeoutlen = 300,
+    clipboard = "unnamedplus",
   },
 
   g = {
