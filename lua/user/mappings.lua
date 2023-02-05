@@ -61,6 +61,10 @@ return {
           name = "Find",
           cond = utils.is_available("telescope.nvim"),
         },
+        s = {
+          name = "Sessions",
+          cond = utils.is_available("nvim-possession"),
+        }
       },
     },
     v = {},
