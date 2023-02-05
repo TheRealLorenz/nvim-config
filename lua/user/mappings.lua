@@ -64,7 +64,14 @@ return {
         s = {
           name = "Sessions",
           cond = utils.is_available("nvim-possession"),
-        }
+        },
+        g = {
+          function()
+            require("user.core.lazygit"):toggle()
+          end,
+          "LazyGit",
+          cond = require("user.core.lazygit") ~= nil,
+        },
       },
     },
     v = {},
