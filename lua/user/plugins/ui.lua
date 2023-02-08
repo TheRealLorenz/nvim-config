@@ -28,4 +28,10 @@ return {
     config = true,
     event = "UiEnter",
   },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = true,
+    event = "BufReadPre",
+  }
 }
