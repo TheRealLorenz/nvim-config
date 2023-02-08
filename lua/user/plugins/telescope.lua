@@ -11,21 +11,22 @@ return {
   },
 
   {
-    "cljoly/telescope-repo.nvim",
+    "nvim-telescope/telescope-project.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
     },
     keys = {
       {
         "<leader>fp",
         function()
-          require("telescope").extensions.repo.list()
+          require("telescope").extensions.project.project()
         end,
-        desc = "Find Repos",
+        desc = "Find Projects",
       },
     },
     config = function()
-      require("telescope").load_extension("repo")
+      require("telescope").load_extension("project")
     end,
   },
 }
