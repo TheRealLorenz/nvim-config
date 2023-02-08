@@ -50,4 +50,17 @@ return {
       },
     },
   },
+
+  {
+    "mizlan/iswap.nvim",
+    keys = {
+      {
+        "<leader>I",
+        function()
+          vim.cmd([[ISwap]])
+        end,
+        desc = "ISwap",
+      },
+    },
+  },
 }
