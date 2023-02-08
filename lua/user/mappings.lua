@@ -72,6 +72,10 @@ return {
           "LazyGit",
           cond = require("user.core.lazygit") ~= nil,
         },
+        t = {
+          name = "Terminal",
+          cond = utils.is_available("toggleterm.nvim"),
+        }
       },
     },
     v = {},
