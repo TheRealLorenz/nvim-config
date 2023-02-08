@@ -9,6 +9,9 @@ return {
     timeout = true,
     timeoutlen = 300,
     clipboard = "unnamedplus",
+
+    -- Neovide config
+    guifont = "JetBrainsMono Nerd Font:h11",
   },
 
   g = {
