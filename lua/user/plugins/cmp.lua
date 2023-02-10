@@ -78,6 +78,6 @@ return {
         }),
       })
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
 }

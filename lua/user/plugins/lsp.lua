@@ -54,6 +54,6 @@ return {
       "neovim/nvim-lspconfig",
     },
     config = true,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
 }
