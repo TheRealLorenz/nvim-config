@@ -7,4 +7,14 @@ return {
       vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
     end,
   },
+  ["BufWinEnter"] = {
+    desc = "Enter insert mode when moving into terminal",
+    pattern = "term://*",
+    command = "startinsert",
+  },
+  ["WinEnter"] = {
+    desc = "Enter insert mode when moving into terminal",
+    pattern = "term://*",
+    command = "startinsert",
+  },
 }
