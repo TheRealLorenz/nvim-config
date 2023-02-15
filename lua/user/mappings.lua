@@ -48,14 +48,6 @@ return {
         n = {
           name = "Notifications",
           cond = utils.is_available("nvim-notify"),
-          h = {
-            function()
-              require("telescope").load_extension("notify")
-              require("telescope").extensions.notify.notify()
-            end,
-            "History",
-            cond = utils.is_available("telescope.nvim"),
-          },
         },
         f = {
           name = "Find",

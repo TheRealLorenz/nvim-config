@@ -8,9 +8,17 @@ return {
       end,
       desc = "Delete All",
     },
+    {
+      "<leader>nh",
+      function()
+        require("telescope").extensions.notify.notify()
+      end,
+      desc = "History",
+    },
   },
   config = function()
     vim.notify = require("notify")
+    require("telescope").load_extension("notify")
   end,
   event = "UiEnter",
 }
