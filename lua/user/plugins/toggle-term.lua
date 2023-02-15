@@ -4,19 +4,15 @@ return {
   keys = {
     {
       "<leader>tf",
-      function()
-        vim.cmd([[ToggleTerm direction=float]])
-      end,
+      "<cmd>exe v:count1 . 'ToggleTerm direction=float'<cr>",
       desc = "Toggle Floating",
       mode = { "n", "t" },
     },
     {
       "<leader>th",
-      function()
-        vim.cmd([[ToggleTerm direction=horizontal]])
-      end,
+      "<cmd>exe v:count1 . 'ToggleTerm direction=horizontal'<cr>",
       desc = "Toggle Horizontal",
       mode = { "n", "t" },
-    }
+    },
   },
 }
