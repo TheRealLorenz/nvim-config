@@ -4,15 +4,9 @@ local options = { noremap = true, silent = true }
 return {
   keymaps = {
     n = {
-      -- Move around splits using Ctrl + {h,j,k,l}
-      ["<C-h>"] = { "<C-w>h", options },
-      ["<C-j>"] = { "<C-w>j", options },
-      ["<C-k>"] = { "<C-w>k", options },
-      ["<C-l>"] = { "<C-w>l", options },
-
       -- Move around buffers
-      ["H"] = { "<cmd>bp<cr>", options },
-      ["L"] = { "<cmd>bn<cr>", options },
+      ["<Tab>"] = { "<cmd>bp<cr>", options },
+      ["<S-Tab>"] = { "<cmd>bn<cr>", options },
     },
     t = {
       -- Move around splits using Ctrl + {h,j,k,l} in terminal mode
