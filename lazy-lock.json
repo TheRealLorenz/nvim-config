@@ -16,7 +16,7 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
   "indent-o-matic": { "branch": "master", "commit": "749b7cbae2d52aa1f65b6a2cd7b879a0b52ac3a1" },
   "iswap.nvim": { "branch": "master", "commit": "f4935e477c3dd8914a008884c4d83388d024487a" },
-  "lazy.nvim": { "branch": "main", "commit": "0741d6231917ef77cd5f69a9b1aacc402a676dd1" },
+  "lazy.nvim": { "branch": "main", "commit": "5c89dc52f42e5058a46b0912d7d9042f564e44e0" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
   "lualine.nvim": { "branch": "master", "commit": "d8c392dd75778d6258da4e7c55522e94ac389732" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "3751eb5c56c67b51e68a1f4a0da28ae74ab771c1" },
@@ -46,5 +46,6 @@
   "telescope.nvim": { "branch": "master", "commit": "e8c01bab917537ba4f54193c29b77bf4a04584d3" },
   "toggleterm.nvim": { "branch": "main", "commit": "19aad0f41f47affbba1274f05e3c067e6d718e1e" },
   "tokyonight.nvim": { "branch": "main", "commit": "def91651c41f6d1d43ebcb50763324d35331baee" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
   "which-key.nvim": { "branch": "main", "commit": "85f69b07afce4ea77c58ae9a3aeb4e6c918b4d34" }
 }
