@@ -62,7 +62,7 @@ local buttons = {
     button("e", "  New file", "<cmd>ene <cr>"),
     button("<leader> e", "  Open Neotree"),
     button("<leader> f f", "  Find file"),
-    button("<leader> f h", "  Find word"),
+    button("<leader> f w", "  Find word"),
     button("<leader> f p", "  Find projects"),
     button("<leader> g", "  Open Lazygit"),
   },
