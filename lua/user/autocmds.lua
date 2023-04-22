@@ -17,4 +17,9 @@ return {
     pattern = "term://*",
     command = "startinsert",
   },
+  ["VimResized"] = {
+    desc = "Auto resize panes when resizing nvim window",
+    pattern = "*",
+    command = "tabdo wincmd =",
+  },
 }
