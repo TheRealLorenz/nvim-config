@@ -20,7 +20,7 @@ return {
         function()
           return vim.fn["codeium#Accept"]()
         end,
-        { noremap=true, silent = true, expr = true, nowait = true },
+        { noremap = true, silent = true, expr = true, nowait = true },
       },
     },
   },
@@ -48,8 +48,17 @@ return {
           cond = require("user.core.lazygit") ~= nil,
         },
         t = {
-          name = "Terminal",
-          cond = utils.is_available("toggleterm.nvim"),
+          name = "Toggle",
+          c = {
+            function()
+              if vim.o.background == "dark" then
+                vim.o.background = "light"
+              else
+                vim.o.background = "dark"
+              end
+            end,
+            "Toggle Colorscheme"
+          }
         }
       },
     },
