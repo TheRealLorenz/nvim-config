@@ -9,16 +9,14 @@ return {
     timeout = true,
     timeoutlen = 300,
     clipboard = "unnamedplus",
-
+    listchars = { tab = "»·", eol = "↲", nbsp = "␣", trail = "·" },
     -- Neovide config
     guifont = "JetBrainsMono Nerd Font:h11",
   },
-
   g = {
     mapleader = " ",
     loaded_netrw = 1,
     loaded_netrwPlugin = 1,
   },
-
   default_colorscheme = "catppuccin",
 }
