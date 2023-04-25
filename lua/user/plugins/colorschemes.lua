@@ -12,4 +12,12 @@ return require("user.core.colorschemes").set_default({
       vim.cmd([[colorscheme onedark]])
     end,
   },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      vim.cmd([[colorscheme catppuccin]])
+    end,
+  }
 })

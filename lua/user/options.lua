@@ -20,5 +20,5 @@ return {
     loaded_netrwPlugin = 1,
   },
 
-  default_colorscheme = "onedark",
+  default_colorscheme = "catppuccin",
 }
