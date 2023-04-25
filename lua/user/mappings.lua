@@ -16,21 +16,14 @@ return {
       ["<C-l>"] = { "<C-\\><C-n><C-w>l", options },
     },
     i = {
-      ["<C-Space>"] = {
+      ["<C-;>"] = {
         function()
           return vim.fn["codeium#Accept"]()
         end,
-        { expr = true },
-      },
-      ["<C-g>"] = {
-        function()
-          return vim.fn["codeium#Accept"]()
-        end,
-        { expr = true },
+        { noremap=true, silent = true, expr = true, nowait = true },
       },
     },
   },
-
   ["which-key"] = {
     n = {
       ["<leader>"] = {
