@@ -9,6 +9,7 @@ return {
     timeout = true,
     timeoutlen = 300,
     clipboard = "unnamedplus",
+    list = true,
     listchars = { tab = "»·", eol = "↲", nbsp = "␣", trail = "·" },
     -- Neovide config
     guifont = "JetBrainsMono Nerd Font:h11",
