@@ -16,7 +16,7 @@ return {
       ["<C-l>"] = { "<C-\\><C-n><C-w>l", options },
     },
     i = {
-      ["<C-;>"] = {
+      ["<C-\\>"] = {
         function()
           return vim.fn["codeium#Accept"]()
         end,
