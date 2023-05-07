@@ -24,8 +24,6 @@ return {
     lazy = false,
   },
 
-  "neovim/nvim-lspconfig",
-
   {
     "jay-babu/mason-null-ls.nvim",
     dependencies = {
