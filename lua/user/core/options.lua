@@ -1,4 +1,4 @@
-local options = require('user.options')
+local options = require("user.options")
 
 -- Set vim.g
 for k, v in pairs(options.g) do
@@ -9,4 +9,3 @@ end
 for k, v in pairs(options.opt) do
   vim.opt[k] = v
 end
-

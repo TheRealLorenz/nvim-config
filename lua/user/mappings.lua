@@ -57,9 +57,9 @@ return {
                 vim.o.background = "dark"
               end
             end,
-            "Toggle Colorscheme"
-          }
-        }
+            "Toggle Colorscheme",
+          },
+        },
       },
     },
     v = {},

@@ -19,5 +19,5 @@ return require("user.core.colorschemes").set_default({
     config = function()
       vim.cmd([[colorscheme catppuccin]])
     end,
-  }
+  },
 })

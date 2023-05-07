@@ -33,7 +33,7 @@ local apply_which_keymaps = function(keymaps)
   wk.register(keymaps.v, { mode = "v" })
 end
 
-local mappings = require('user.mappings')
+local mappings = require("user.mappings")
 
 apply_keymaps(mappings.keymaps)
 apply_which_keymaps(mappings["which-key"])
