@@ -65,6 +65,7 @@ local buttons = {
     button("<leader> f w", "󰈬 Find word"),
     button("<leader> f p", "  Find projects"),
     button("<leader> g", "  Open Lazygit"),
+    button("q", "󰗼 Quit", "<cmd>qa<cr>"),
   },
   opts = {
     spacing = 1,
