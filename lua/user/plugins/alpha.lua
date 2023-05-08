@@ -61,11 +61,11 @@ local buttons = {
   val = {
     button("e", "  New file", "<cmd>ene <cr>"),
     button("<leader> e", "  Open Neotree"),
-    button("<leader> f f", "󰈞 Find file"),
-    button("<leader> f w", "󰈬 Find word"),
+    button("<leader> f f", "󰈞  Find file"),
+    button("<leader> f w", "󰈬  Find word"),
     button("<leader> f p", "  Find projects"),
     button("<leader> g", "  Open Lazygit"),
-    button("q", "󰗼 Quit", "<cmd>qa<cr>"),
+    button("q", "󰗼  Quit", "<cmd>qa<cr>"),
   },
   opts = {
     spacing = 1,
