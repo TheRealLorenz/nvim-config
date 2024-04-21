@@ -7,14 +7,14 @@ return {
       function()
         require('telescope.builtin').find_files()
       end,
-      'Find Files'
+      desc = 'Files'
     },
     {
       '<leader>fw',
       function()
         require('telescope.builtin').live_grep()
       end,
-      'Find Word'
+      desc = 'Word'
     },
   }
 }
