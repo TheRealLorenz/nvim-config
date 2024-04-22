@@ -13,5 +13,12 @@ return {
       vim.cmd.colorscheme('kanagawa')
     end,
   },
+
+  -- Better UI
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
+    event = "UiEnter",
+  },
 }
 
