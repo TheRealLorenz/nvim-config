@@ -69,7 +69,7 @@ return {
         then
           lsp_map('<leader>th', function()
             vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
-          end, 'Toggle Inlay Hints')
+          end, 'Inlay Hints')
         end
 
         -- Highlight symbol under cursor
@@ -128,13 +128,21 @@ return {
       end,
     })
 
+    vim.g.auto_format = true
+    vim.keymap.set('n', '<leader>tf', function()
+      vim.g.auto_format = not vim.g.auto_format
+      vim.notify('Auto format: ' .. tostring(vim.g.auto_format))
+    end, { desc = 'Auto Format' })
+
     require('conform').setup {
       formatters_by_ft = mason_helper.formatters_by_ft(),
     }
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = '*',
       callback = function(args)
-        require('conform').format { bufnr = args.buf }
+        if vim.g.auto_format then
+          require('conform').format { bufnr = args.buf }
+        end
       end,
     })
   end,

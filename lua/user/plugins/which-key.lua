@@ -7,6 +7,7 @@ return {
     which_key.register {
       ['<leader>f'] = { name = 'Find' },
       ['<leader>b'] = { name = 'Buffer' },
+      ['<leader>t'] = { name = 'Toggle' },
     }
   end,
 }
