@@ -1,18 +1,18 @@
 -- Set <space> as the leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Show number column
 vim.opt.number = true
 
 -- Enable mouse
-vim.opt.mouse = "a"
+vim.opt.mouse = 'a'
 
 -- Disable mode showing
 vim.opt.showmode = false
 
 -- Sync clipboard with OS
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = 'unnamedplus'
 
 -- Save undo history
 vim.opt.undofile = true
@@ -23,7 +23,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -37,14 +37,13 @@ vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
+vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-

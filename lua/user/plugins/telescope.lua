@@ -1,5 +1,6 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.6',
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.6',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-ui-select.nvim',
@@ -10,25 +11,25 @@ return {
       function()
         require('telescope.builtin').find_files()
       end,
-      desc = 'Files'
+      desc = 'Files',
     },
     {
       '<leader>fw',
       function()
         require('telescope.builtin').live_grep()
       end,
-      desc = 'Word'
+      desc = 'Word',
     },
   },
   config = function()
-    require('telescope').setup({
+    require('telescope').setup {
       extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
-        }
-      }
-    })
+        ['ui-select'] = {
+          require('telescope.themes').get_dropdown(),
+        },
+      },
+    }
 
-    require('telescope').load_extension("ui-select")
-  end
+    require('telescope').load_extension 'ui-select'
+  end,
 }
