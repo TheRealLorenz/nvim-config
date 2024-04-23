@@ -1,5 +1,15 @@
 local M = {}
 
+local ft_by_tool = {
+  clangd = { 'c', 'cpp' },
+  ['clang-format'] = { 'c', 'cpp' },
+  flake8 = { 'python' },
+  jsonlint = { 'json' },
+  lua_ls = { 'lua' },
+  stylua = { 'lua' },
+  pylint = { 'python' },
+}
+
 local function tool_by_ft(category)
   local t = {}
 
@@ -9,11 +19,17 @@ local function tool_by_ft(category)
   end, packages)
 
   for _, tool in ipairs(tools) do
-    for _, language in ipairs(tool.spec.languages) do
-      local ft = string.lower(language)
+    local fts = ft_by_tool[tool.name]
 
-      t[ft] = t[ft] or {}
-      table.insert(t[ft], tool.name)
+    if not fts then
+      print(
+        '`Tool -> File Type` mapping not specified for \'' .. tool.name .. '\''
+      )
+    else
+      for _, ft in ipairs(fts) do
+        t[ft] = t[ft] or {}
+        table.insert(t[ft], tool.name)
+      end
     end
   end
 
