@@ -1,6 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
+    'mfussenegger/nvim-lint',
 
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
@@ -75,6 +76,13 @@ return {
           require('lspconfig')[server_name].setup(server)
         end
       }
+    })
+
+    require('lint').linters_by_ft = require('user.mason-linters')
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      callback = function()
+        require("lint").try_lint()
+      end,
     })
   end
 }
