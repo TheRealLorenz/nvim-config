@@ -4,7 +4,12 @@ return {
     vim.g.auto_format = true
 
     require('conform').setup {
-      formatters_by_ft = require('user.mason-helper').formatters_by_ft(),
+      formatters_by_ft = {
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        lua = { 'stylua' },
+        python = { 'black' },
+      },
     }
 
     vim.api.nvim_create_autocmd('BufWritePre', {
