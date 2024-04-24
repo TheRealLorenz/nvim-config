@@ -1,11 +1,9 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'mfussenegger/nvim-lint',
-    'stevearc/conform.nvim',
-
-    { 'williamboman/mason.nvim', config = true },
+    'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'hrsh7th/cmp-nvim-lsp',
 
     { 'j-hui/fidget.nvim', config = true },
 
@@ -119,31 +117,5 @@ return {
         end,
       },
     }
-
-    local mason_helper = require 'user.mason-helper'
-    require('lint').linters_by_ft = mason_helper.linters_by_ft()
-    vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-      callback = function()
-        require('lint').try_lint()
-      end,
-    })
-
-    vim.g.auto_format = true
-    vim.keymap.set('n', '<leader>tf', function()
-      vim.g.auto_format = not vim.g.auto_format
-      vim.notify('Auto format: ' .. tostring(vim.g.auto_format))
-    end, { desc = 'Auto Format' })
-
-    require('conform').setup {
-      formatters_by_ft = mason_helper.formatters_by_ft(),
-    }
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      pattern = '*',
-      callback = function(args)
-        if vim.g.auto_format then
-          require('conform').format { bufnr = args.buf }
-        end
-      end,
-    })
   end,
 }
