@@ -3,6 +3,11 @@ return {
   dependencies = {
     'williamboman/mason.nvim',
   },
+  init = function()
+    vim.api.nvim_create_user_command('LintInfo', function()
+      vim.print(vim.inspect(require('lint').get_running()))
+    end, {})
+  end,
   config = function()
     require('lint').linters_by_ft = {
       python = { 'flake8' },
@@ -15,4 +20,5 @@ return {
       end,
     })
   end,
+  event = 'BufWritePre',
 }
