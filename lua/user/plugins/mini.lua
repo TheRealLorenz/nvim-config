@@ -1,5 +1,17 @@
 return {
   'echasnovski/mini.nvim',
+  dependencies = {
+    {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      dependencies = {
+        'nvim-treesitter/nvim-treesitter',
+      },
+      config = {
+        enable_autocmd = false,
+      },
+      lazy = true,
+    },
+  },
   config = function()
     require('mini.ai').setup { n_lines = 500 }
 
@@ -30,7 +42,15 @@ return {
     files.setup()
     vim.keymap.set('n', '<leader>e', files.open, { desc = 'Open Explorer' })
 
-    require('mini.comment').setup()
+    require('mini.comment').setup {
+      options = {
+        custom_commentstring = function()
+          return require('ts_context_commentstring').calculate_commentstring()
+            or vim.bo.commentstring
+        end,
+      },
+    }
+
     local hipatterns = require 'mini.hipatterns'
     hipatterns.setup {
       highlighters = {
