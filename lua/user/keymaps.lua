@@ -16,3 +16,12 @@ vim.keymap.set(
 -- Visual move
 vim.keymap.set('n', 'j', 'gj', { noremap = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true })
+
+-- Toggle colorscheme
+vim.keymap.set('n', '<leader>tc', function()
+  if vim.o.background == 'dark' then
+    vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
+  end
+end, { desc = 'Colorscheme' })
