@@ -2,6 +2,12 @@
 
 return {
   {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {},
+  },
+  {
     'mizlan/iswap.nvim',
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
