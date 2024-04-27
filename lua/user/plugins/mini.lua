@@ -36,8 +36,6 @@ return {
       return '%2l:%-2v'
     end
 
-    require('mini.diff').setup()
-
     local files = require 'mini.files'
     files.setup()
     vim.keymap.set('n', '<leader>e', files.open, { desc = 'Open Explorer' })
