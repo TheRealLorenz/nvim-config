@@ -10,7 +10,7 @@ return {
           default_opts = {
             toggleterm = {
               direction = 'horizontal',
-              single_terminal_per_instance = true,
+              singleton = true,
             },
           },
         },
@@ -19,7 +19,7 @@ return {
           default_opts = {
             toggleterm = {
               direction = 'horizontal',
-              single_terminal_per_instance = true,
+              singleton = true,
             },
           },
         },
