@@ -9,8 +9,8 @@ vim.keymap.set('n', 'gp', '<cmd>bp<CR>', { desc = 'Goto Previous Buffer' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Visual move
-vim.keymap.set('n', 'j', 'gj', { noremap = true })
-vim.keymap.set('n', 'k', 'gk', { noremap = true })
+vim.keymap.set('n', 'j', 'gj', { silent = true, noremap = true })
+vim.keymap.set('n', 'k', 'gk', { silent = true, noremap = true })
 
 -- Toggle colorscheme
 vim.keymap.set('n', '<leader>tc', function()
