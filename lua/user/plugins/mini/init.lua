@@ -30,11 +30,7 @@ return {
 
     require('mini.tabline').setup()
 
-    local statusline = require 'mini.statusline'
-    statusline.setup()
-    statusline.section_location = function()
-      return '%2l:%-2v'
-    end
+    require 'user.plugins.mini.statusline'
 
     local files = require 'mini.files'
     files.setup()
