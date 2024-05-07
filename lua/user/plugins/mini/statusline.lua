@@ -42,7 +42,6 @@ statusline.setup {
       local filename = MiniStatusline.section_filename { trunc_width = 140 }
       local fileinfo = section_fileinfo { trunc_width = 120 }
       local location = '%2l:%-2v'
-      local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
       return MiniStatusline.combine_groups {
         { hl = mode_hl, strings = { mode } },
@@ -51,7 +50,7 @@ statusline.setup {
         { hl = 'MiniStatuslineFilename', strings = { filename } },
         '%=', -- End left alignment
         { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-        { hl = mode_hl, strings = { search, location } },
+        { hl = mode_hl, strings = { location } },
       }
     end,
   },
