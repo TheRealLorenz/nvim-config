@@ -42,6 +42,10 @@ local section_filename = function()
   -- Compute unique buf name
   local full_path = vim.api.nvim_buf_get_name(0)
 
+  if full_path == '' then
+    return '%f'
+  end
+
   local path = utils.tbl_find(function(item)
     return string.find(full_path, item) ~= nil
   end, utils.buf_unique_names()) or full_path
