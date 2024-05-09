@@ -6,7 +6,7 @@ local Git = {
   provider = function()
     local s = ' ' .. vim.b.gitsigns_head
     if vim.b.gitsigns_status then
-      s = s .. vim.b.gitsigns_status
+      s = s .. ' ' .. vim.b.gitsigns_status
     end
     return s .. ' '
   end,
