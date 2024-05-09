@@ -2,6 +2,7 @@ local Mode = require 'user.statusline.modules.mode'
 local Position = require 'user.statusline.modules.position'
 local Filename = require 'user.statusline.modules.filename'
 local FileInfo = require 'user.statusline.modules.fileinfo'
+local Git = require 'user.statusline.modules.git'
 
 local Align = { provider = '%=' }
 local Space = { provider = ' ' }
@@ -9,6 +10,7 @@ local Space = { provider = ' ' }
 local Statusline = {
   Mode,
   Space,
+  Git,
   Filename,
   Align,
 
