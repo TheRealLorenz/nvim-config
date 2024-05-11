@@ -39,6 +39,7 @@ local Statuslines = {
   },
 
   require 'user.statusline.inactive',
+  require 'user.statusline.dapui',
   require 'user.statusline.default',
 }
 
