@@ -58,6 +58,7 @@ local FileInfoBlock = {
   FileEncoding,
   Space,
   FileFormat,
+  Space,
 }
 
 return FileInfoBlock

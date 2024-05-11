@@ -17,7 +17,6 @@ local Statusline = {
   Align,
 
   FileInfo,
-  Space,
   Position,
 }
 
