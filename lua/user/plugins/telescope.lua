@@ -20,6 +20,13 @@ return {
       end,
       desc = 'Word',
     },
+    {
+      '<leader>fb',
+      function()
+        require('telescope.builtin').buffers()
+      end,
+      desc = 'Buffers',
+    },
   },
   config = function()
     require('telescope').setup {
