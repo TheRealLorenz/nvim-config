@@ -1,3 +1,5 @@
+local user_utils = require 'user.utils'
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -21,4 +23,33 @@ vim.api.nvim_create_autocmd('VimResized', {
   desc = 'Auto resize panes when resizing nvim window',
   pattern = '*',
   command = 'tabdo wincmd =',
+})
+
+-- Set cppcheck compile-commands path in a CMake project
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'CMakeToolsEnterProject',
+  callback = function()
+    local ok, lint = pcall(require, 'lint')
+    if not ok then
+      return
+    end
+    local cmake = require 'cmake-tools'
+
+    lint.linters.cppcheck.append_fname = false
+
+    local key = user_utils.tbl_key(function(arg)
+      return type(arg) == 'string' and string.find(arg, '%-%-project=') ~= nil
+    end, lint.linters.cppcheck.args)
+    if key then
+      table[key] = nil
+    end
+
+    table.insert(
+      lint.linters.cppcheck.args,
+      string.format(
+        '--project=%s/compile_commands.json',
+        cmake.get_build_directory()
+      )
+    )
+  end,
 })
