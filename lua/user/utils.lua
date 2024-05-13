@@ -7,9 +7,20 @@ local M = {}
 --- @param t table<K, V> The table to search into
 --- @return V? # The first element that matches the predicate, otherwise nil
 M.tbl_find = function(f, t)
-  for _, v in pairs(t) do
+  local key = M.tbl_key(f, t)
+  return key and t[key] or nil
+end
+
+--- @generic K: any
+--- @generic V: any
+---
+--- @param f fun(v: V): boolean The predicate
+--- @param t table<K, V> The table to search into
+--- @return K? # The key fo the first element that matches the predicate, otherwise nil
+M.tbl_key = function(f, t)
+  for k, v in pairs(t) do
     if f(v) then
-      return v
+      return k
     end
   end
   return nil
