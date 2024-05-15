@@ -1,7 +1,7 @@
 return {
   'stevearc/conform.nvim',
   config = function()
-    vim.g.auto_format = true
+    vim.g.format_on_save = true
 
     require('conform').setup {
       formatters_by_ft = {
@@ -15,7 +15,7 @@ return {
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = '*',
       callback = function(args)
-        if vim.g.auto_format then
+        if vim.g.format_on_save then
           require('conform').format { bufnr = args.buf }
         end
       end,
@@ -26,11 +26,11 @@ return {
     {
       '<leader>tf',
       function()
-        vim.g.auto_format = vim.g.auto_format or false
-        vim.g.auto_format = not vim.g.auto_format
-        vim.notify('Auto format: ' .. tostring(vim.g.auto_format))
+        vim.g.format_on_save = vim.g.format_on_save or false
+        vim.g.format_on_save = not vim.g.format_on_save
+        vim.notify('Format on Save: ' .. tostring(vim.g.format_on_save))
       end,
-      desc = 'Auto Format',
+      desc = 'Format on Save',
     },
   },
 }
