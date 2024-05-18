@@ -76,18 +76,18 @@ return {
         lsp_map('<leader>a', vim.lsp.buf.code_action, 'Code Action')
 
         -- Toggle Inlay Hints
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
         if
           client
           and client.server_capabilities.inlayHintProvider
           and vim.lsp.inlay_hint
         then
           lsp_map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))
           end, 'Inlay Hints')
         end
 
         -- Highlight symbol under cursor
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
