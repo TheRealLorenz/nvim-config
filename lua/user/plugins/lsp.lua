@@ -74,7 +74,6 @@ return {
         )
         lsp_map('<leader>r', vim.lsp.buf.rename, 'Rename Symbol')
         lsp_map('<leader>a', vim.lsp.buf.code_action, 'Code Action')
-        lsp_map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
         -- Toggle Inlay Hints
         if
