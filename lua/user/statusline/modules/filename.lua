@@ -15,9 +15,9 @@ local FileName = {
       return '%f'
     end
 
-    local name = user_utils.tbl_find(function(item)
+    local name = vim.iter(user_utils.buf_unique_names()):find(function(item)
       return string.find(full_path, item) ~= nil
-    end, user_utils.buf_unique_names()) or full_path
+    end) or full_path
 
     return name
   end,

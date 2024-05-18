@@ -37,12 +37,12 @@ vim.api.nvim_create_autocmd('User', {
 
     lint.linters.cppcheck.append_fname = false
 
-    local key = user_utils.tbl_key(function(arg)
-      return type(arg) == 'string' and string.find(arg, '%-%-project=') ~= nil
-    end, lint.linters.cppcheck.args)
-    if key then
-      table[key] = nil
-    end
+    lint.linters.cppcheck.args = vim
+      .iter(lint.linters.cppcheck.args)
+      :filter(function(arg)
+        return type(arg) ~= 'string' or string.find(arg, '%-%-project=') == nil
+      end)
+      :totable()
 
     table.insert(
       lint.linters.cppcheck.args,
