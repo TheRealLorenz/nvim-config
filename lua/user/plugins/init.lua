@@ -20,7 +20,4 @@ return {
     opts = {},
     event = 'UiEnter',
   },
-
-  -- Parse path:row:col
-  'wsdjeg/vim-fetch',
 }
