@@ -27,6 +27,13 @@ return {
       end,
       desc = 'Buffers',
     },
+    {
+      '<leader>?',
+      function()
+        require('telescope.builtin').commands()
+      end,
+      desc = 'Telescope commands',
+    },
   },
   config = function()
     require('telescope').setup {
