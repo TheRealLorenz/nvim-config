@@ -2,6 +2,12 @@
 
 return {
   {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
