@@ -27,16 +27,18 @@ return {
     end, { nargs = '?' })
   end,
   config = function()
-    require('lint').linters_by_ft = {
+    local lint = require 'lint'
+    lint.linters_by_ft = {
       python = { 'flake8' },
       json = { 'jsonlint' },
       cpp = { 'cppcheck' },
       c = { 'cppcheck' },
     }
+    table.insert(lint.linters.cppcheck.args, '--suppress=missingIncludeSystem')
 
     vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
       callback = function()
-        require('lint').try_lint()
+        lint.try_lint()
       end,
     })
   end,
