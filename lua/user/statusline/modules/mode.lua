@@ -32,15 +32,41 @@ local Mode = {
     self.mode = vim.fn.mode()
   end,
 
-  hl = function()
-    return { fg = utils.get_highlight('Statusline').bg, bold = true }
-  end,
-
   provider = function(self)
     return ' ' .. self.modes[self.mode].long
   end,
 }
 
+local MacroRec = {
+  condition = function()
+    return vim.fn.reg_recording() ~= '' and vim.o.cmdheight == 0
+  end,
+  provider = function()
+    return string.format('󰻃 [%s] ', vim.fn.reg_recording())
+  end,
+  update = {
+    'RecordingEnter',
+    'RecordingLeave',
+  },
+}
+
+local ShowCmd = {
+  condition = function()
+    return vim.o.cmdheight == 0
+  end,
+  provider = ' :%3.5(%S%)',
+}
+
+local ModeBlock = {
+  hl = function()
+    return { fg = utils.get_highlight('Statusline').bg, bold = true }
+  end,
+
+  MacroRec,
+  Mode,
+  ShowCmd,
+}
+
 return utils.surround({ '█', '' }, function(self)
   return self:mode_color()
-end, Mode)
+end, ModeBlock)
