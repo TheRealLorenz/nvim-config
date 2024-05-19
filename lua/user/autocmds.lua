@@ -25,6 +25,17 @@ vim.api.nvim_create_autocmd('VimResized', {
   command = 'tabdo wincmd =',
 })
 
+-- Fix statusline disappearing with cmdheight=0
+vim.api.nvim_create_autocmd('ModeChanged', {
+  desc = 'Schedule statusline redraw on mode change',
+  pattern = '*',
+  callback = function()
+    vim.schedule(function()
+      vim.cmd.redraw()
+    end)
+  end,
+})
+
 -- Set cppcheck compile-commands path in a CMake project
 vim.api.nvim_create_autocmd('User', {
   pattern = 'CMakeToolsEnterProject',
