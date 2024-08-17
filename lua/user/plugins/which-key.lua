@@ -4,10 +4,10 @@ return {
   config = function()
     local which_key = require 'which-key'
     which_key.setup()
-    which_key.register {
-      ['<leader>f'] = { name = 'Find' },
-      ['<leader>b'] = { name = 'Buffer' },
-      ['<leader>t'] = { name = 'Toggle' },
+    which_key.add {
+      { '<leader>f', group = 'Find' },
+      { '<leader>b', group = 'Buffer' },
+      { '<leader>t', group = 'Toggle' },
     }
   end,
 }
