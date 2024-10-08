@@ -5,7 +5,7 @@ return {
     require('heirline').setup {
       statusline = require 'user.statusline',
       opts = {
-        colors = require('kanagawa.colors').setup(),
+        colors = require('catppuccin.palettes').get_palette(),
       },
     }
   end,
