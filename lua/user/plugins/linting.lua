@@ -33,6 +33,10 @@ return {
       json = { 'jsonlint' },
       cpp = { 'cppcheck' },
       c = { 'cppcheck' },
+      javascript = { 'eslint_d' },
+      typescript = { 'eslint_d' },
+      javascriptreact = { 'eslint_d' },
+      typescriptreact = { 'eslint_d' },
     }
     table.insert(lint.linters.cppcheck.args, '--suppress=missingIncludeSystem')
 

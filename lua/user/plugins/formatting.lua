@@ -9,6 +9,10 @@ return {
         cpp = { 'clang-format' },
         lua = { 'stylua' },
         python = { 'black' },
+        javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
       },
     }
 
