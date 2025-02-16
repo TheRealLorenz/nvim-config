@@ -1,6 +1,9 @@
 return {
   -- Detected tabstop and shiftwidth
-  'tpope/vim-sleuth',
+  {
+    'Darazaki/indent-o-matic',
+    config = true,
+  },
 
   -- Icons support
   'nvim-tree/nvim-web-devicons',
