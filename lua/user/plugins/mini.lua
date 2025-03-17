@@ -57,7 +57,7 @@ return {
     vim.keymap.set('i', '<CR>', function()
       if vim.fn.pumvisible ~= 0 then
         local item_selected = vim.fn.complete_info()['selected'] ~= -1
-        return item_selected and vim.keycode '<C-y>' or vim.keycode '<C-y><CR>'
+        return item_selected and vim.keycode '<C-y>' or pairs.cr()
       else
         return pairs.cr()
       end
