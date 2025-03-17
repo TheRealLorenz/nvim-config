@@ -48,5 +48,7 @@ return {
     notify.setup()
 
     vim.notify = notify.make_notify()
+
+    require('mini.statusline').setup()
   end,
 }
