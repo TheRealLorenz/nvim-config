@@ -5,9 +5,6 @@ return {
     config = true,
   },
 
-  -- Icons support
-  'nvim-tree/nvim-web-devicons',
-
   {
     'catppuccin/nvim',
     name = 'catppuccin',

@@ -78,5 +78,8 @@ return {
         return vim.keycode '<S-Tab>'
       end
     end, { expr = true })
+
+    require('mini.icons').setup()
+    MiniIcons.tweak_lsp_kind()
   end,
 }
