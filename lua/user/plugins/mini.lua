@@ -9,7 +9,8 @@ return {
     bufremove.setup()
     vim.keymap.set('n', '<leader>bd', bufremove.delete, { desc = 'Delete' })
 
-    require('mini.pairs').setup()
+    local pairs = require 'mini.pairs'
+    pairs.setup()
 
     require('mini.tabline').setup()
 
@@ -50,5 +51,32 @@ return {
     vim.notify = notify.make_notify()
 
     require('mini.statusline').setup()
+
+    require('mini.completion').setup()
+
+    vim.keymap.set('i', '<CR>', function()
+      if vim.fn.pumvisible ~= 0 then
+        local item_selected = vim.fn.complete_info()['selected'] ~= -1
+        return item_selected and vim.keycode '<C-y>' or vim.keycode '<C-y><CR>'
+      else
+        return pairs.cr()
+      end
+    end, { expr = true })
+
+    vim.keymap.set('i', '<Tab>', function()
+      if vim.fn.pumvisible() ~= 0 then
+        return vim.keycode '<C-n>'
+      else
+        return vim.keycode '<Tab>'
+      end
+    end, { expr = true })
+
+    vim.keymap.set('i', '<S-Tab>', function()
+      if vim.fn.pumvisible() ~= 0 then
+        return vim.keycode '<C-p>'
+      else
+        return vim.keycode '<S-Tab>'
+      end
+    end, { expr = true })
   end,
 }
