@@ -57,31 +57,6 @@ return {
 
     require('mini.completion').setup()
 
-    vim.keymap.set('i', '<CR>', function()
-      if vim.fn.pumvisible ~= 0 then
-        local item_selected = vim.fn.complete_info()['selected'] ~= -1
-        return item_selected and vim.keycode '<C-y>' or pairs.cr()
-      else
-        return pairs.cr()
-      end
-    end, { expr = true })
-
-    vim.keymap.set('i', '<Tab>', function()
-      if vim.fn.pumvisible() ~= 0 then
-        return vim.keycode '<C-n>'
-      else
-        return vim.keycode '<Tab>'
-      end
-    end, { expr = true })
-
-    vim.keymap.set('i', '<S-Tab>', function()
-      if vim.fn.pumvisible() ~= 0 then
-        return vim.keycode '<C-p>'
-      else
-        return vim.keycode '<S-Tab>'
-      end
-    end, { expr = true })
-
     require('mini.icons').setup()
     MiniIcons.tweak_lsp_kind()
 
