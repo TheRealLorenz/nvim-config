@@ -1,5 +1,8 @@
 return {
   'echasnovski/mini.nvim',
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+  },
   config = function()
     require('mini.ai').setup { n_lines = 500 }
 
@@ -81,5 +84,12 @@ return {
 
     require('mini.icons').setup()
     MiniIcons.tweak_lsp_kind()
+
+    local snippets = require 'mini.snippets'
+    snippets.setup {
+      snippets = {
+        snippets.gen_loader.from_lang(),
+      },
+    }
   end,
 }
