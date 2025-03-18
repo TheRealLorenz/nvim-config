@@ -51,7 +51,7 @@ return {
           require('refactoring').select_refactor()
         end,
         desc = 'Refactor',
-        mode = { 'n', 'v' },
+        mode = { 'n', 'x' },
       },
     },
   },
