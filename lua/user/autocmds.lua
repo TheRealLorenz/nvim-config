@@ -35,32 +35,3 @@ vim.api.nvim_create_autocmd('ModeChanged', {
     end)
   end,
 })
-
--- Set cppcheck compile-commands path in a CMake project
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'CMakeToolsEnterProject',
-  callback = function()
-    local ok, lint = pcall(require, 'lint')
-    if not ok then
-      return
-    end
-    local cmake = require 'cmake-tools'
-
-    lint.linters.cppcheck.append_fname = false
-
-    lint.linters.cppcheck.args = vim
-      .iter(lint.linters.cppcheck.args)
-      :filter(function(arg)
-        return type(arg) ~= 'string' or string.find(arg, '%-%-project=') == nil
-      end)
-      :totable()
-
-    table.insert(
-      lint.linters.cppcheck.args,
-      string.format(
-        '--project=%s/compile_commands.json',
-        cmake.get_build_directory()
-      )
-    )
-  end,
-})
