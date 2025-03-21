@@ -5,7 +5,7 @@ return {
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
-    { 'folke/neodev.nvim', config = true },
+    { 'folke/lazydev.nvim', ft = 'lua', config = true },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
