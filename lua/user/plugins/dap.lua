@@ -3,18 +3,8 @@ return {
   dependencies = {
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio',
-    'jay-babu/mason-nvim-dap.nvim',
   },
   config = function()
-    require('mason-nvim-dap').setup {
-      ensure_installed = {},
-      automatic_installation = false,
-      handlers = {
-        function(config)
-          require('mason-nvim-dap').default_setup(config)
-        end,
-      },
-    }
     require('dapui').setup()
     vim.fn.sign_define('DapBreakpoint', { text = '•' })
   end,

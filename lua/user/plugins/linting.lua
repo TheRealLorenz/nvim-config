@@ -18,9 +18,6 @@ end
 
 return {
   'mfussenegger/nvim-lint',
-  dependencies = {
-    'williamboman/mason.nvim',
-  },
   init = function()
     vim.api.nvim_create_user_command('LintInfo', function(ctx)
       vim.print(lint_info(ctx.fargs[1]))

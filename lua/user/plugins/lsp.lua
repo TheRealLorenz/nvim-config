@@ -1,9 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-
     { 'j-hui/fidget.nvim', config = true },
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -13,13 +10,23 @@ return {
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-      callback = function(event)
+      callback = function(args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        if client:supports_method 'textDocument/completion' then
+          vim.lsp.completion.enable(
+            true,
+            client.id,
+            args.buf,
+            { autotrigger = true }
+          )
+        end
+
         local lsp_map = function(keys, func, desc)
           vim.keymap.set(
             'n',
             keys,
             func,
-            { buffer = event.buf, desc = 'LSP: ' .. desc }
+            { buffer = args.buf, desc = 'LSP: ' .. desc }
           )
         end
 
@@ -58,64 +65,31 @@ return {
         lsp_map('<leader>a', vim.lsp.buf.code_action, 'Code Action')
 
         -- Toggle Inlay Hints
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if
-          client
-          and client.server_capabilities.inlayHintProvider
-          and vim.lsp.inlay_hint
-        then
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.inlay_hint.enable()
           lsp_map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))
           end, 'Inlay Hints')
         end
 
         -- Highlight symbol under cursor
-        if client and client.server_capabilities.documentHighlightProvider then
+        if client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            buffer = event.buf,
+            buffer = args.buf,
             callback = vim.lsp.buf.document_highlight,
           })
 
           vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            buffer = event.buf,
+            buffer = args.buf,
             callback = vim.lsp.buf.clear_references,
           })
         end
       end,
     })
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    require('mason').setup()
-
-    local servers = {
-      clangd = {
-        on_new_config = function(new_config, new_cwd)
-          local status, cmake = pcall(require, 'cmake-tools')
-          if status then
-            cmake.clangd_on_new_config(new_config)
-          end
-        end,
-      },
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-    }
-
-    require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-
-          server.capabilities = vim.tbl_deep_extend(
-            'force',
-            {},
-            capabilities,
-            server.capabilities or {}
-          )
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
+    local servers = { 'lua_ls', 'rust_analyzer', 'clangd', 'ts_ls' }
+    for _, server in pairs(servers) do
+      require('lspconfig')[server].setup {}
+    end
   end,
 }
