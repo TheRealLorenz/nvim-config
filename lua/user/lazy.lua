@@ -18,4 +18,5 @@ require('lazy').setup {
   install = {
     colorscheme = { 'catppuccin' },
   },
+  dev = { path = '~/Code' },
 }
