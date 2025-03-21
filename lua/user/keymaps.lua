@@ -32,9 +32,9 @@ end, { desc = 'Colorscheme' })
 vim.keymap.set('i', '<CR>', function()
   if vim.fn.pumvisible ~= 0 then
     local item_selected = vim.fn.complete_info()['selected'] ~= -1
-    return item_selected and vim.keycode '<C-y>' or require('mini.pairs').cr()
+    return item_selected and vim.keycode '<C-y>' or vim.keycode '<CR>'
   else
-    return require('mini.pairs').cr()
+    return vim.keycode '<CR>'
   end
 end, { expr = true })
 
