@@ -6,6 +6,12 @@ local function bufremove_setup()
   return bufremove
 end
 
+local function completion_setup()
+  require('mini.completion').setup()
+
+  vim.o.completeopt = vim.o.completeopt .. ',fuzzy'
+end
+
 local function files_setup()
   local files = require 'mini.files'
   files.setup()
@@ -96,7 +102,7 @@ return {
 
     require('mini.statusline').setup()
 
-    require('mini.completion').setup()
+    completion_setup()
 
     icons_setup()
 
