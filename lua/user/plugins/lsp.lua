@@ -12,14 +12,6 @@ return {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method 'textDocument/completion' then
-          vim.lsp.completion.enable(
-            true,
-            client.id,
-            args.buf,
-            { autotrigger = true }
-          )
-        end
 
         local lsp_map = function(keys, func, desc)
           vim.keymap.set(

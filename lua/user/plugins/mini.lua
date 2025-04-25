@@ -6,12 +6,6 @@ local function bufremove_setup()
   return bufremove
 end
 
-local function completion_setup()
-  require('mini.completion').setup()
-
-  vim.o.completeopt = vim.o.completeopt .. ',fuzzy'
-end
-
 local function files_setup()
   local files = require 'mini.files'
   files.setup()
@@ -68,16 +62,6 @@ local function icons_setup()
   icons.tweak_lsp_kind()
 end
 
-local function snippets_setup()
-  local snippets = require 'mini.snippets'
-  snippets.setup {
-    snippets = {
-      snippets.gen_loader.from_lang(),
-    },
-  }
-  return snippets
-end
-
 return {
   'echasnovski/mini.nvim',
   dependencies = {
@@ -102,10 +86,6 @@ return {
 
     require('mini.statusline').setup()
 
-    completion_setup()
-
     icons_setup()
-
-    snippets_setup()
   end,
 }
