@@ -3,8 +3,6 @@ return {
   dependencies = {
     { 'j-hui/fidget.nvim', config = true },
 
-    -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
     { 'folke/lazydev.nvim', ft = 'lua', config = true },
   },
   config = function()
@@ -79,9 +77,6 @@ return {
       end,
     })
 
-    local servers = { 'lua_ls', 'rust_analyzer', 'clangd', 'ts_ls' }
-    for _, server in pairs(servers) do
-      require('lspconfig')[server].setup {}
-    end
+    vim.lsp.enable { 'lua_ls', 'clangd', 'rust_analyzer', 'ts_ls', 'tinymist' }
   end,
 }
