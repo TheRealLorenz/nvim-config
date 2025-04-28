@@ -1,4 +1,5 @@
 local terminal = require 'user.terminal'
+local utils = require 'user.utils'
 
 -- Disable Hightlight Search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -33,3 +34,6 @@ end, { desc = 'Colorscheme' })
 
 -- Toggle terminal
 vim.keymap.set('n', '<space>tt', terminal.toggle, { desc = 'Terminal' })
+
+-- Better gF
+vim.keymap.set('n', 'gF', utils.goto_file, { desc = 'Goto File' })
