@@ -13,11 +13,4 @@ return {
       vim.cmd.colorscheme 'catppuccin'
     end,
   },
-
-  -- Better UI
-  {
-    'stevearc/dressing.nvim',
-    opts = {},
-    event = 'UiEnter',
-  },
 }
