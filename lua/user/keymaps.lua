@@ -1,3 +1,5 @@
+local terminal = require 'user.terminal'
+
 -- Disable Hightlight Search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -28,3 +30,6 @@ vim.keymap.set('n', '<leader>tc', function()
     vim.o.background = 'dark'
   end
 end, { desc = 'Colorscheme' })
+
+-- Toggle terminal
+vim.keymap.set('n', '<space>tt', terminal.toggle, { desc = 'Terminal' })
