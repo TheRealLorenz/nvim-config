@@ -70,6 +70,13 @@ return {
       end,
     })
 
-    vim.lsp.enable { 'lua_ls', 'clangd', 'rust_analyzer', 'ts_ls', 'tinymist' }
+    vim.lsp.enable {
+      'lua_ls',
+      'clangd',
+      'pyright',
+      'rust_analyzer',
+      'ts_ls',
+      'tinymist',
+    }
   end,
 }
