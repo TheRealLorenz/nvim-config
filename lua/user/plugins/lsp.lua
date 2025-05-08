@@ -27,11 +27,6 @@ return {
         )
         lsp_map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
         lsp_map(
-          'gr',
-          require('telescope.builtin').lsp_references,
-          'Goto References'
-        )
-        lsp_map(
           'gI',
           require('telescope.builtin').lsp_implementations,
           'Goto Implementations'
@@ -51,8 +46,6 @@ return {
           require('telescope.builtin').lsp_dynamic_workspace_symbols,
           'Find Symbols (Workspace)'
         )
-        lsp_map('<leader>r', vim.lsp.buf.rename, 'Rename Symbol')
-        lsp_map('<leader>a', vim.lsp.buf.code_action, 'Code Action')
 
         -- Toggle Inlay Hints
         if client.server_capabilities.inlayHintProvider then
