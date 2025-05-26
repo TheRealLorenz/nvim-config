@@ -77,6 +77,7 @@ return {
       'rust_analyzer',
       'ts_ls',
       'tinymist',
+      'emmet_language_server',
     }
   end,
 }
