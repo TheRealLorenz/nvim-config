@@ -19,17 +19,9 @@ M.toggle = function()
     })
     if vim.bo[terminal.buf].buftype ~= 'terminal' then
       vim.cmd.terminal()
+      vim.wo[terminal.win].winfixbuf = true
       terminal.buf = vim.api.nvim_get_current_buf()
       vim.bo[terminal.buf].buflisted = false
-
-      local disabled_keymaps = { ']b', '[b', ']B', '[B' }
-      for _, keymap in ipairs(disabled_keymaps) do
-        vim.keymap.set('n', keymap, '', {
-          buffer = terminal.buf,
-          noremap = true,
-          silent = true,
-        })
-      end
     end
   else
     vim.api.nvim_win_hide(terminal.win)
