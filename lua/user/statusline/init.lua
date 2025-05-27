@@ -16,14 +16,12 @@ function Statusline()
     misc.padding(),
     git(),
     misc.padding(),
-    misc.padding(),
     misc.truncate,
     misc.separator,
     diagnostics(),
     file.info(),
     misc.padding(),
     position(),
-    misc.padding(),
   }
 
   return table.concat(components)
