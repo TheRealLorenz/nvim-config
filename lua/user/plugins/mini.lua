@@ -84,8 +84,6 @@ return {
 
     notify_setup()
 
-    require('mini.statusline').setup()
-
     icons_setup()
   end,
 }
