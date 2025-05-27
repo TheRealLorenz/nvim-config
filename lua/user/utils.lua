@@ -1,5 +1,12 @@
 local M = {}
 
+---Capitalize a string
+---@param s string
+---@return string
+M.capitalize = function(s)
+  return (s:gsub('^%l', string.upper))
+end
+
 M.buf_unique_names = function()
   local paths = vim
     .iter(vim.api.nvim_list_bufs())
