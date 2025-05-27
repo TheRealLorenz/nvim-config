@@ -1,21 +1,22 @@
 local color = require 'user.statusline.colors'
+local highlights = require 'user.highlights'
 
 local diagnostic_levels = {
   [vim.diagnostic.severity.ERROR] = {
     sign = '',
-    hl = color.highlights['red'],
+    hl = highlights['red'],
   },
   [vim.diagnostic.severity.WARN] = {
     sign = '',
-    hl = color.highlights['yellow'],
+    hl = highlights['yellow'],
   },
   [vim.diagnostic.severity.INFO] = {
     sign = '',
-    hl = color.highlights['blue'],
+    hl = highlights['blue'],
   },
   [vim.diagnostic.severity.HINT] = {
     sign = '',
-    hl = color.highlights['blue'],
+    hl = highlights['blue'],
   },
 }
 

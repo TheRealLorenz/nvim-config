@@ -1,4 +1,5 @@
 local colors = require 'user.statusline.colors'
+local highlights = require 'user.highlights'
 
 local git = function()
   if
@@ -11,7 +12,7 @@ local git = function()
     or ''
   return colors.set_hl(
     string.format(' %s%s ', vim.b.gitsigns_head, status),
-    colors.highlights['peach']
+    highlights['peach']
   )
 end
 

@@ -1,4 +1,5 @@
 local colors = require 'user.statusline.colors'
+local highlights = require 'user.highlights'
 
 local CTRL_S = vim.api.nvim_replace_termcodes('<C-S>', true, true, true)
 local CTRL_V = vim.api.nvim_replace_termcodes('<C-V>', true, true, true)
@@ -6,19 +7,19 @@ local CTRL_V = vim.api.nvim_replace_termcodes('<C-V>', true, true, true)
 local M = {}
 
 local modes = setmetatable({
-  ['n'] = { 'Normal', colors.highlights['red-bg'] },
-  ['v'] = { 'Visual', colors.highlights['blue-bg'] },
-  ['V'] = { 'V-Line', colors.highlights['blue-bg'] },
-  [CTRL_V] = { 'V-Block', colors.highlights['blue-bg'] },
-  ['s'] = { 'Select', colors.highlights['mauve-bg'] },
-  ['S'] = { 'S-Line', colors.highlights['mauve-bg'] },
-  [CTRL_S] = { 'S-Block', colors.highlights['mauve-bg'] },
-  ['i'] = { 'Insert', colors.highlights['green-bg'] },
-  ['R'] = { 'Replace', colors.highlights['peach-bg'] },
-  ['c'] = { 'Command', colors.highlights['peach-bg'] },
-  ['r'] = { 'Prompt', colors.highlights['peach-bg'] },
-  ['!'] = { 'Shell', colors.highlights['red-bg'] },
-  ['t'] = { 'Terminal', colors.highlights['green-bg'] },
+  ['n'] = { 'Normal', highlights['redBg'] },
+  ['v'] = { 'Visual', highlights['blueBg'] },
+  ['V'] = { 'V-Line', highlights['blueBg'] },
+  [CTRL_V] = { 'V-Block', highlights['blueBg'] },
+  ['s'] = { 'Select', highlights['mauveBg'] },
+  ['S'] = { 'S-Line', highlights['mauveBg'] },
+  [CTRL_S] = { 'S-Block', highlights['mauveBg'] },
+  ['i'] = { 'Insert', highlights['greenBg'] },
+  ['R'] = { 'Replace', highlights['peachBg'] },
+  ['c'] = { 'Command', highlights['peachBg'] },
+  ['r'] = { 'Prompt', highlights['peachBg'] },
+  ['!'] = { 'Shell', highlights['redBg'] },
+  ['t'] = { 'Terminal', highlights['greenBg'] },
 }, {
   __index = function(value)
     return { '? ' .. value, '' }
