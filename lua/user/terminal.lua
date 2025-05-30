@@ -19,6 +19,7 @@ M.toggle = function()
     })
     if vim.bo[terminal.buf].buftype ~= 'terminal' then
       vim.cmd.terminal()
+      vim.cmd.startinsert()
       vim.wo[terminal.win].winfixbuf = true
       terminal.buf = vim.api.nvim_get_current_buf()
       vim.bo[terminal.buf].buflisted = false
