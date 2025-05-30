@@ -14,33 +14,17 @@ local function files_setup()
 end
 
 local function hipatterns_setup()
-  local hipatterns = require 'mini.hipatterns'
-  hipatterns.setup {
-    highlighters = {
-      -- Highlight standalone 'FIXME', 'XXX', 'HACK', 'TODO', 'NOTE'
-      fixme = {
-        pattern = '%f[%w]()FIXME()%f[%W]',
-        group = 'MiniHipatternsFixme',
-      },
-      xxx = { pattern = '%f[%w]()XXX()%f[%W]', group = 'MiniHipatternsFixme' },
-      hack = {
-        pattern = '%f[%w]()HACK()%f[%W]',
-        group = 'MiniHipatternsHack',
-      },
-      todo = {
-        pattern = '%f[%w]()TODO()%f[%W]',
-        group = 'MiniHipatternsTodo',
-      },
-      note = {
-        pattern = '%f[%w]()NOTE()%f[%W]',
-        group = 'MiniHipatternsNote',
-      },
+  local hi_words = require('mini.extra').gen_highlighter.words
 
-      -- Highlight hex color strings (`#rrggbb`) using that color
-      hex_color = hipatterns.gen_highlighter.hex_color(),
+  require('mini.hipatterns').setup {
+    highlighters = {
+      fixme = hi_words({ 'FIXME' }, 'MiniHipatternsFixme'),
+      xxx = hi_words({ 'XXX' }, 'MiniHipatternsFixme'),
+      hack = hi_words({ 'HACK' }, 'MiniHipatternsHack'),
+      todo = hi_words({ 'TODO' }, 'MiniHipatternsTodo'),
+      note = hi_words({ 'NOTE' }, 'MiniHipatternsNote'),
     },
   }
-  return hipatterns
 end
 
 local function notify_setup()
@@ -68,6 +52,8 @@ return {
     'rafamadriz/friendly-snippets',
   },
   config = function()
+    require('mini.extra').setup()
+
     require('mini.ai').setup { n_lines = 500 }
 
     require('mini.surround').setup()
