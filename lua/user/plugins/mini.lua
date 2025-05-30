@@ -46,6 +46,35 @@ local function icons_setup()
   icons.tweak_lsp_kind()
 end
 
+local function pick_setup()
+  local picker = require 'mini.pick'
+  local extra = require 'mini.extra'
+  picker.setup()
+
+  vim.ui.select = picker.ui_select
+
+  vim.keymap.set(
+    'n',
+    '<leader>f',
+    picker.builtin.files,
+    { desc = 'Pick Files' }
+  )
+  vim.keymap.set(
+    'n',
+    '<leader>/',
+    picker.builtin.grep_live,
+    { desc = 'Live Grep' }
+  )
+  vim.keymap.set('n', '<leader>bp', picker.builtin.buffers, { desc = 'Pick' })
+  vim.keymap.set(
+    'n',
+    '<leader>?',
+    extra.pickers.commands,
+    { desc = 'Commands' }
+  )
+  vim.keymap.set('n', '<leader>h', picker.builtin.help, { desc = 'Help' })
+end
+
 return {
   'echasnovski/mini.nvim',
   dependencies = {
@@ -71,5 +100,7 @@ return {
     notify_setup()
 
     icons_setup()
+
+    pick_setup()
   end,
 }

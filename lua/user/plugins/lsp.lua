@@ -20,32 +20,15 @@ return {
           )
         end
 
-        lsp_map(
-          'gd',
-          require('telescope.builtin').lsp_definitions,
-          'Goto Definition'
-        )
-        lsp_map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-        lsp_map(
-          'gI',
-          require('telescope.builtin').lsp_implementations,
-          'Goto Implementations'
-        )
-        lsp_map(
-          '<leader>D',
-          require('telescope.builtin').lsp_type_definitions,
-          'Type Definition'
-        )
-        lsp_map(
-          '<leader>fs',
-          require('telescope.builtin').lsp_document_symbols,
-          'Find Symbols'
-        )
-        lsp_map(
-          '<leader>fS',
-          require('telescope.builtin').lsp_dynamic_workspace_symbols,
-          'Find Symbols (Workspace)'
-        )
+        lsp_map('gd', function()
+          require('mini.extra').pickers.lsp { scope = 'definition' }
+        end, 'Goto Definition')
+        lsp_map('gD', function()
+          require('mini.extra').pickers.lsp { scope = 'declaration' }
+        end, 'Goto Declaration')
+        lsp_map('gt', function()
+          require('mini.extra').pickers.lsp { scope = 'type_definition' }
+        end, 'Goto Implementations')
 
         -- Toggle Inlay Hints
         if client.server_capabilities.inlayHintProvider then
