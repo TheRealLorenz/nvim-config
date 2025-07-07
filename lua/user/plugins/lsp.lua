@@ -26,9 +26,6 @@ return {
         lsp_map('gD', function()
           require('mini.extra').pickers.lsp { scope = 'declaration' }
         end, 'Goto Declaration')
-        lsp_map('gt', function()
-          require('mini.extra').pickers.lsp { scope = 'type_definition' }
-        end, 'Goto Implementations')
 
         -- Toggle Inlay Hints
         if client.server_capabilities.inlayHintProvider then
