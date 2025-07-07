@@ -13,7 +13,9 @@ return {
         typescript = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
+        css = { 'prettierd' },
         rust = { 'rustfmt' },
+        json = { 'prettierd' },
       },
     }
 
