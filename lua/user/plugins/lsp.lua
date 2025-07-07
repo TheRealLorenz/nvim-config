@@ -61,6 +61,9 @@ return {
       'ts_ls',
       'tinymist',
       'emmet_language_server',
+      'cssls',
+      'tailwindcss',
+      'angularls',
     }
   end,
 }
