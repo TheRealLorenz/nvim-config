@@ -1,3 +1,53 @@
+local trigger_chars = {}
+for i = 32, 126 do
+  table.insert(trigger_chars, string.char(i))
+end
+
+---@param client vim.lsp.Client
+---@param buf integer
+local setup_completion = function(client, buf)
+  local highlights = require 'user.highlights'
+  local kind_hlgroup = {
+    nil, ---Text
+    highlights['mauve'], ---Method
+    highlights['mauve'], ---Function
+    nil, ---Constructor
+    highlights['blue'], ---Field
+    highlights['blue'], ---Variable
+    nil, ---Class
+    nil, ---Interface
+    nil, ---Module
+    highlights['blue'], --- Property
+    nil, --- Unit
+    nil, --- Value
+    nil, --- Enum
+    nil, --- Keyword
+    nil, --- Snippet
+    nil, --- Color
+    nil, --- File
+    nil, --- Reference
+    nil, --- Folder
+    nil, --- EnumMember
+    nil, --- Constant
+    nil, --- Struct
+    nil, --- Event
+    nil, --- Operator
+    nil, --- TypeParameter
+  }
+
+  client.server_capabilities.completionProvider.triggerCharacters =
+    trigger_chars
+
+  vim.cmd [[set completeopt+=noselect,fuzzy,menuone]]
+
+  vim.lsp.completion.enable(true, client.id, buf, {
+    autotrigger = true,
+    convert = function(item)
+      return { kind_hlgroup = kind_hlgroup[item.kind] }
+    end,
+  })
+end
+
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
@@ -47,6 +97,10 @@ return {
             callback = vim.lsp.buf.clear_references,
           })
         end
+
+        if client.server_capabilities.completionProvider then
+          setup_completion(client, args.buf)
+        end
       end,
     })
 
@@ -61,6 +115,7 @@ return {
       'cssls',
       'tailwindcss',
       'angularls',
+      'gopls',
     }
   end,
 }
