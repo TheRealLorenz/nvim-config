@@ -38,8 +38,6 @@ local setup_completion = function(client, buf)
   client.server_capabilities.completionProvider.triggerCharacters =
     trigger_chars
 
-  vim.cmd [[set completeopt+=noselect,fuzzy,menuone]]
-
   vim.lsp.completion.enable(true, client.id, buf, {
     autotrigger = true,
     convert = function(item)
