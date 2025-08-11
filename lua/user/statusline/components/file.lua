@@ -1,6 +1,5 @@
 local M = {}
 
-local utils = require 'user.utils'
 local colors = require 'user.statusline.colors'
 
 ---@return string
@@ -53,18 +52,7 @@ M.name = function()
     return '%t'
   end
 
-  -- Compute unique buf name
-  local full_path = vim.api.nvim_buf_get_name(0)
-
-  if full_path == '' then
-    return '%f'
-  end
-
-  local name = vim.iter(utils.buf_unique_names()):find(function(item)
-    return string.find(full_path, item) ~= nil
-  end) or full_path
-
-  return name
+  return '%f'
 end
 
 return M
