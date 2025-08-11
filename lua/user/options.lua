@@ -48,6 +48,11 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.winborder = 'rounded'
+
+-- Global statusline
+vim.opt.laststatus = 3
+
 -- Completion
 vim.o.completeopt = 'noselect,fuzzy,menuone'
 
@@ -62,3 +67,5 @@ vim.diagnostic.config {
     },
   },
 }
+
+vim.opt.guicursor = { 'n-v:block-Cursor/lCursor', 'i-c-ci-ve:block-TermCursor' }
