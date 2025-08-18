@@ -29,7 +29,9 @@ end
 
 local function notify_setup()
   local notify = require 'mini.notify'
-  notify.setup()
+  notify.setup {
+    lsp_progress = { enable = false },
+  }
   vim.notify = notify.make_notify()
   return notify
 end
