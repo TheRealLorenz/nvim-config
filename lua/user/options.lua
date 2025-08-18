@@ -24,6 +24,7 @@ opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.ignorecase = true -- Unless \C
 opt.smartcase = true
+opt.tabstop = 4
 
 vim.diagnostic.config {
   signs = {
