@@ -1,4 +1,4 @@
-local winchoose = require 'plugin.winchoose'
+local winchoose = require 'user.winchoose'
 
 local function bettergf()
   -- Read filepath under cursor (es: file[:riga[:colonna]])
@@ -31,5 +31,3 @@ local function bettergf()
 end
 
 vim.keymap.set('n', 'gF', bettergf, { desc = 'Goto File' })
-
-return bettergf
