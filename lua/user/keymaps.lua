@@ -7,10 +7,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Visual move
-vim.keymap.set('n', 'j', 'gj', { silent = true, noremap = true })
-vim.keymap.set('n', 'k', 'gk', { silent = true, noremap = true })
-
 -- Open quickfix from buffer
 vim.keymap.set(
   'n',
