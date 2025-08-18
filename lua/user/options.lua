@@ -15,7 +15,6 @@ local options = {
   laststatus = 3,
   completeopt = { 'noselect', 'fuzzy', 'menuone' },
   wrap = false,
-  guicursor = { 'n-v:block-Cursor/lCursor', 'i-c-ci-ve:block-TermCursor' },
 
   updatetime = 250,
   timeoutlen = 300,
@@ -39,9 +38,9 @@ end
 vim.diagnostic.config {
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
       [vim.diagnostic.severity.HINT] = '',
     },
   },
