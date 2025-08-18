@@ -29,4 +29,6 @@ M.toggle = function()
   end
 end
 
+vim.keymap.set('n', '<space>tt', M.toggle, { desc = 'Terminal' })
+
 return M

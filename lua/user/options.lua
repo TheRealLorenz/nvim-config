@@ -1,40 +1,30 @@
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+local global = vim.g
+local opt = vim.opt
 
-local options = {
-  number = true,
-  mouse = 'a',
-  showmode = false,
-  clipboard = 'unnamedplus',
-  undofile = true,
-  inccommand = 'split',
-  cursorline = true,
-  scrolloff = 10,
-  winborder = 'rounded',
-  laststatus = 3,
-  completeopt = { 'noselect', 'fuzzy', 'menuone' },
-  wrap = false,
+global.mapleader = ' '
+global.maplocalleader = ' '
 
-  updatetime = 250,
-  timeoutlen = 300,
+opt.number = true
+opt.mouse = 'a'
+opt.showmode = false
+opt.clipboard = 'unnamedplus'
+opt.undofile = true
+opt.inccommand = 'split'
+opt.cursorline = true
+opt.scrolloff = 10
+opt.winborder = 'rounded'
+opt.laststatus = 3
+opt.completeopt = { 'noselect', 'fuzzy', 'menuone' }
+opt.wrap = false
+opt.updatetime = 250
+opt.timeoutlen = 300
+opt.splitright = true
+opt.splitbelow = true
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.ignorecase = true -- Unless \C
+opt.smartcase = true
 
-  splitright = true,
-  splitbelow = true,
-
-  list = true,
-  listchars = { tab = '» ', trail = '·', nbsp = '␣' },
-
-  -- Unless \C
-  ignorecase = true,
-  smartcase = true,
-}
-
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
-
--- Diagnostic symbols
 vim.diagnostic.config {
   signs = {
     text = {
