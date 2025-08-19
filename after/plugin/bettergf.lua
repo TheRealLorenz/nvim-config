@@ -1,5 +1,3 @@
-local winchoose = require 'user.winchoose'
-
 local function bettergf()
   -- Read filepath under cursor (es: file[:riga[:colonna]])
   local raw = vim.fn.expand '<cfile>'
@@ -13,7 +11,7 @@ local function bettergf()
   lnum = tonumber(lnum)
   col = tonumber(col)
 
-  winchoose(function(window)
+  Winchoose(function(window)
     if not window then
       print 'No window selected'
     end

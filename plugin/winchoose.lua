@@ -64,7 +64,7 @@ local function unmark_windows()
 end
 
 ---@param on_window fun(windowID?: integer)
-M.select_window = function(on_window)
+function Winchoose(on_window)
   local wins = vim.api.nvim_list_wins()
   mark_windows(wins)
 
@@ -74,5 +74,3 @@ M.select_window = function(on_window)
     on_window(wins[idx])
   end)
 end
-
-return M.select_window

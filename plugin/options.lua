@@ -1,8 +1,4 @@
-local global = vim.g
 local opt = vim.opt
-
-global.mapleader = ' '
-global.maplocalleader = ' '
 
 opt.number = true
 opt.mouse = 'a'
