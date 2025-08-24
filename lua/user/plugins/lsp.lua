@@ -6,43 +6,43 @@ end
 ---@param client vim.lsp.Client
 ---@param buf integer
 local setup_completion = function(client, buf)
-  local highlights = require 'user.highlights'
-  local kind_hlgroup = {
-    nil, ---Text
-    highlights['mauve'], ---Method
-    highlights['mauve'], ---Function
-    nil, ---Constructor
-    highlights['blue'], ---Field
-    highlights['blue'], ---Variable
-    nil, ---Class
-    nil, ---Interface
-    nil, ---Module
-    highlights['blue'], --- Property
-    nil, --- Unit
-    nil, --- Value
-    nil, --- Enum
-    nil, --- Keyword
-    nil, --- Snippet
-    nil, --- Color
-    nil, --- File
-    nil, --- Reference
-    nil, --- Folder
-    nil, --- EnumMember
-    nil, --- Constant
-    nil, --- Struct
-    nil, --- Event
-    nil, --- Operator
-    nil, --- TypeParameter
-  }
+  -- local highlights = require 'user.highlights'
+  -- local kind_hlgroup = {
+  --   nil, ---Text
+  --   highlights['mauve'], ---Method
+  --   highlights['mauve'], ---Function
+  --   nil, ---Constructor
+  --   highlights['blue'], ---Field
+  --   highlights['blue'], ---Variable
+  --   nil, ---Class
+  --   nil, ---Interface
+  --   nil, ---Module
+  --   highlights['blue'], --- Property
+  --   nil, --- Unit
+  --   nil, --- Value
+  --   nil, --- Enum
+  --   nil, --- Keyword
+  --   nil, --- Snippet
+  --   nil, --- Color
+  --   nil, --- File
+  --   nil, --- Reference
+  --   nil, --- Folder
+  --   nil, --- EnumMember
+  --   nil, --- Constant
+  --   nil, --- Struct
+  --   nil, --- Event
+  --   nil, --- Operator
+  --   nil, --- TypeParameter
+  -- }
 
   client.server_capabilities.completionProvider.triggerCharacters =
     trigger_chars
 
   vim.lsp.completion.enable(true, client.id, buf, {
     autotrigger = true,
-    convert = function(item)
-      return { kind_hlgroup = kind_hlgroup[item.kind] }
-    end,
+    -- convert = function(item)
+    --   return { kind_hlgroup = kind_hlgroup[item.kind] }
+    -- end,
   })
 end
 

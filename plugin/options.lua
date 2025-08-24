@@ -2,7 +2,6 @@ local opt = vim.opt
 
 opt.number = true
 opt.mouse = 'a'
-opt.showmode = false
 opt.clipboard = 'unnamedplus'
 opt.undofile = true
 opt.inccommand = 'split'
