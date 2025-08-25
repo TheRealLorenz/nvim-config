@@ -115,7 +115,7 @@ function Statusline()
     M.diagnostics(),
     M.fileinfo(),
     ' ',
-    ' %l:%v ',
+    M.set_hl(' %l:%v ', 'PmenuSel'),
   }
 
   return table.concat(components)
