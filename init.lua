@@ -1,1 +1,7 @@
-require 'user.lazy'
+require 'config.lazy'
+require 'config.autocmds'
+require 'config.keymaps'
+require 'config.options'
+require 'config.statusline'
+require 'config.terminal'
+require 'config.lsp'

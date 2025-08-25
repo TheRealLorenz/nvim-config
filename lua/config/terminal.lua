@@ -30,3 +30,9 @@ M.toggle = function()
 end
 
 vim.keymap.set('n', '<space>tt', M.toggle, { desc = 'Terminal' })
+vim.keymap.set(
+  't',
+  '<Esc><Esc>',
+  '<C-\\><C-n>',
+  { desc = 'Exit terminal mode' }
+)

@@ -10,13 +10,6 @@ return {
   end,
   keys = {
     {
-      '<leader>tb',
-      function()
-        require('dap').toggle_breakpoint()
-      end,
-      desc = 'Breakpoint',
-    },
-    {
       '<leader>td',
       function()
         require('dapui').toggle()
