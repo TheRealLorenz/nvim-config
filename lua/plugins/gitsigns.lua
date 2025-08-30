@@ -16,4 +16,6 @@ return {
       desc = 'Prev hunk',
     },
   },
+  config = true,
+  event = 'VeryLazy',
 }
