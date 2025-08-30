@@ -23,11 +23,6 @@ M.git = function()
   )
 end
 
-M.fileflags = function()
-  return (vim.bo.modified and ' [+]' or '')
-    .. ((not vim.bo.modifiable or vim.bo.readonly) and ' ' or '')
-end
-
 ---@param filetype string
 ---@return string, string
 M.icon_hl = function(filetype)
@@ -55,64 +50,17 @@ M.fileinfo = function()
   return M.set_hl(icon .. ' ' .. ft, hl) .. ' ' .. encoding .. ' ' .. format
 end
 
-local diagnostic_levels = {
-  [vim.diagnostic.severity.ERROR] = {
-    sign = '',
-    hl = 'DiagnosticsSignError',
-  },
-  [vim.diagnostic.severity.WARN] = {
-    sign = '',
-    hl = 'DiagnosticsSignWarn',
-  },
-  [vim.diagnostic.severity.INFO] = {
-    sign = '',
-    hl = 'DiagnosticsSignInfo',
-  },
-  [vim.diagnostic.severity.HINT] = {
-    sign = '',
-    hl = 'DiagnosticsSignHint',
-  },
-}
-
----@return string
-M.diagnostics_for = function(severity)
-  local count = vim.diagnostic.count(0)[severity] or 0
-  if count == 0 then
-    return ''
-  end
-
-  local icon =
-    M.set_hl(diagnostic_levels[severity].sign, diagnostic_levels[severity].hl)
-
-  return string.format('%s %d ', icon, count)
-end
-
----@return string
-M.diagnostics = function()
-  if vim.bo.buftype ~= '' or #vim.lsp.get_clients { bufnr = 0 } == 0 then
-    return ''
-  end
-
-  return table.concat {
-    M.diagnostics_for(vim.diagnostic.severity.ERROR),
-    M.diagnostics_for(vim.diagnostic.severity.WARN),
-    M.diagnostics_for(vim.diagnostic.severity.INFO),
-    M.diagnostics_for(vim.diagnostic.severity.HINT),
-  }
-end
-
 ---@return string
 function Statusline()
   ---@type string[]
   local components = {
-    '%f',
-    M.fileflags(),
-    ' ',
+    '%f%m%h ',
     M.git(),
     ' ',
     '%<', -- Truncate
-    '%=', -- Separator
-    M.diagnostics(),
+    '%=', -- Align
+    vim.diagnostic.status(),
+    ' ',
     M.fileinfo(),
     ' ',
     M.set_hl(' %l:%v ', 'PmenuSel'),
