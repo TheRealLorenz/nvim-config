@@ -58,19 +58,19 @@ end
 local diagnostic_levels = {
   [vim.diagnostic.severity.ERROR] = {
     sign = '',
-    hl = 'DiagnosticsSignError',
+    hl = 'DiagnosticSignError',
   },
   [vim.diagnostic.severity.WARN] = {
     sign = '',
-    hl = 'DiagnosticsSignWarn',
+    hl = 'DiagnosticSignWarn',
   },
   [vim.diagnostic.severity.INFO] = {
     sign = '',
-    hl = 'DiagnosticsSignInfo',
+    hl = 'DiagnosticSignInfo',
   },
   [vim.diagnostic.severity.HINT] = {
     sign = '',
-    hl = 'DiagnosticsSignHint',
+    hl = 'DiagnosticSignHint',
   },
 }
 
