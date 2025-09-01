@@ -106,4 +106,5 @@ vim.lsp.enable {
   'tailwindcss',
   'angularls',
   'gopls',
+  'eslint',
 }
