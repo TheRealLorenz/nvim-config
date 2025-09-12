@@ -46,7 +46,7 @@ return {
     config = true,
     keys = {
       {
-        '<leader>R',
+        '<leader>r',
         function()
           require('refactoring').select_refactor()
         end,
