@@ -111,4 +111,5 @@ vim.lsp.enable {
   'angularls',
   'gopls',
   'eslint',
+  'svelte',
 }
